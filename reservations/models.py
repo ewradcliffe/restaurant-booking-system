@@ -52,3 +52,15 @@ class Reservation(models.Model):
 
     # NB I have not set an on delete on reservation_booked_by because I want staff
     # to be able to make reservations on the behalf of others.
+
+    class Meta:
+        """
+        Orders reservations. Soonest reservations first."
+        """
+        ordering = ["reservation_date", "-reservation_time"]
+
+    def __str__(self):
+        """
+        Displays most useful reservation information.
+        """
+        return f"{self.reservation_name} | {self.reservation_date} | {self.reservation_time} | {self.number_of_guests}"
