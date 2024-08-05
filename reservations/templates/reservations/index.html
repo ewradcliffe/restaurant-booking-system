@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Would you like to make a reservation?</h1>
+    {% for reservation in reservation_list %}
+    <p>Name: {{ reservation.reservation_name }}</p>
+    <p>Date: {{ reservation.reservation_date }}</p>
+    <p>Start: {{ reservation.reservation_time }}</p>
+    <p>Table size: {{ reservation.number_of_guests}}</p>
+    {% endfor %}
+{% endblock %}
