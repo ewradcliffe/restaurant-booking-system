@@ -2,6 +2,7 @@ from . import views
 from django.urls import path
 
 urlpatterns = [
-    path('', views.ReservationList.as_view(), name='reservations-urls'),
+    path('', views.index.as_view(), name='index-urls'),
+    path('reservations/', views.ReservationList.as_view(), name='reservations-urls'),
 ]
 
