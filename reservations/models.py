@@ -41,12 +41,12 @@ class Reservation(models.Model):
     Class to manage reservations.
     """
     reservation_name = models.CharField(max_length=60)
-    reservation_email = models.EmailField(blank=True)
-    reservation_phone_number = models.IntegerField(blank=True)
+    reservation_email = models.EmailField(blank=True, null=True)
+    reservation_phone_number = models.IntegerField(blank=True, null=True)
     reservation_date = models.DateField()
     reservation_time = models.CharField(choices=RESERVATION_TIME)
     number_of_guests = models.CharField(choices=NUMBER_OF_GUESTS)
-    reservation_booked_by = models.ForeignKey(User, on_delete=models.SET_NULL)
+    reservation_booked_by = models.ForeignKey(User, null=True, on_delete=models.SET_NULL)
     reservation_created_on = models.DateTimeField(auto_now_add=True)
     reservation_updated_on = models.DateTimeField(auto_now=True)
 
