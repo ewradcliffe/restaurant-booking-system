@@ -1,3 +1,28 @@
+
+/* Google fonts import */
+@import url('https://fonts.googleapis.com/css2?family=Bokor&family=IM+Fell+English+SC&display=swap');
+
+/* General styles */
 body {
-    background-color: rgb(235, 160, 160);
+    background-color: rgb(243, 216, 65);
+    font-family: "IM Fell English SC", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* Logo*/
+
+#logo {
+    font-family: "Bokor", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 400%;
+    padding: 0% 2%;
+}
+
+
+/* Navbar*/
+.nav-item {
+    font-size: 200%;
+    padding: 2%;
 }
