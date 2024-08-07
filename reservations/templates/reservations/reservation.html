@@ -7,8 +7,6 @@
 {% if user.is_authenticated %}
 <p>You are logged in as {{ user }}.</p>
 
-
-
 <h2>Your reservations:</h2>
 {% for reservation in reservation_list %}
 {% if user == reservation.reservation_booked_by %}
