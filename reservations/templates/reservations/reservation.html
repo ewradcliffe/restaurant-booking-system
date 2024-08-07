@@ -3,6 +3,30 @@
 {% url 'account_signup' as signup_url %}
 {% url 'account_logout' as logout_url %}
 {% block content %}
-<h1>Would you like to make a reservation?</h1>
+
+{% if user.is_authenticated %}
+<p>You are logged in as {{ user }}.</p>
+
+
+
+<h2>Your reservations:</h2>
+{% for reservation in reservation_list %}
+{% if user == reservation.reservation_booked_by %}
+<div>
+    <p>Name: {{reservation.reservation_name}}</p>
+    <p>Date: {{reservation.reservation_date}}</p>
+</div>
+{% endif %}
+{% endfor %}
+
+
+
+<button>Make a reservation</button>
+
+{% else %}
+<p>Please log in to make a reservation or veiw an existing reservation.</p>
+{% endif %}
+
+
 
 {% endblock %}
