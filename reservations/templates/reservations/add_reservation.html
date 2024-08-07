@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+{% if user.is_authenticated %}
+<p>You are logged in as {{ user }}.</p>
+<!-- Adding a reservation -->
+<form id="reservationForm" method="POST" enctype="multipart/form-data">
+ 
+    <!-- Security token -->
+    {% csrf_token %}
+ 
+    <!-- Using the formset -->
+    {{ form.as_p }}
+     
+    <input type="submit" value="Submit">
+</form>
+
+{% else %}
+<p>Please log in to make a reservation or veiw an existing reservation.</p>
+{% endif %}
+
+{% endblock %}

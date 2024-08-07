@@ -1,7 +1,4 @@
 {% extends "base.html" %}
-{% url 'account_login' as login_url %}
-{% url 'account_signup' as signup_url %}
-{% url 'account_logout' as logout_url %}
 {% block content %}
 
 {% if user.is_authenticated %}
@@ -17,9 +14,7 @@
 {% endif %}
 {% endfor %}
 
-
-
-<button>Make a reservation</button>
+<button><a href="{% url 'add-reservation' %}">Make a reservation</a></button>
 
 {% else %}
 <p>Please log in to make a reservation or veiw an existing reservation.</p>
