@@ -1,5 +1,8 @@
 {% extends "base.html" %}
-
+{% url 'account_login' as login_url %}
+{% url 'account_signup' as signup_url %}
+{% url 'account_logout' as logout_url %}
 {% block content %}
-    <h1>Would you like to make a reservation?</h1>
+<h1>Would you like to make a reservation?</h1>
+
 {% endblock %}

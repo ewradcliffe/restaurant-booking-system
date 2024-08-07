@@ -36,6 +36,23 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'reservations-urls' %}">Reservations</a>
                         </li>
+                        <!--Signup/login/logout.
+    Code from https://learn.codeinstitute.net/ django blog tutorial -->
+{% if user.is_authenticated %}
+<li class="nav-item">
+    <a class="nav-link {% if request.path == logout_url %}active{% endif %}" aria-current="page"
+        href="{% url 'account_logout' %}">Logout</a>
+</li>
+{% else %}
+<li class="nav-item">
+    <a class="nav-link {% if request.path == signup_url %}active{% endif %}" aria-current="page"
+        href="{% url 'account_signup' %}">Register</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link {% if request.path == login_url %}active{% endif %}" aria-current="page"
+        href="{% url 'account_login' %}">Login</a>
+</li>
+{% endif %}
                     </ul>
                 </div>
             </div>
@@ -43,6 +60,7 @@
 
     </header>
     <main>
+        
         <!-- block content here -->
         {% block content %}
         {% endblock content %}
