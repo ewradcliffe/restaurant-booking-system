@@ -3,10 +3,15 @@
 
 {% if user.is_authenticated %}
 <p>You are logged in as {{ user }}.</p>
+{% else %}
+<p>Please log in to make a reservation or veiw an existing reservation.</p>
+{% endif %}
 
-<h2>Your reservations:</h2>
+
+<h1>Your reservations:</h1>
 {% for reservation in reservation_list %}
 {% if user == reservation.reservation_booked_by %}
+
 <div>
     <p>Name: {{reservation.reservation_name}}</p>
     <p>Date: {{reservation.reservation_date}}</p>
@@ -14,12 +19,11 @@
 {% endif %}
 {% endfor %}
 
+
+
+
+
 <button><a href="{% url 'add-reservation' %}">Make a reservation</a></button>
-
-{% else %}
-<p>Please log in to make a reservation or veiw an existing reservation.</p>
-{% endif %}
-
 
 
 {% endblock %}

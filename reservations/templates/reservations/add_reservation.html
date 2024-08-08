@@ -1,20 +1,26 @@
 {% extends "base.html" %}
 {% block content %}
-
+{% load crispy_forms_tags %}
 
 {% if user.is_authenticated %}
 <p>You are logged in as {{ user }}.</p>
 <!-- Adding a reservation -->
-<form id="reservationForm" method="POST" enctype="multipart/form-data">
- 
-    <!-- Security token -->
-    {% csrf_token %}
- 
-    <!-- Using the formset -->
-    {{ form.as_p }}
-     
-    <input type="submit" value="Submit">
-</form>
+<div >
+    <div class="card-body">
+      {% if user.is_authenticated %}
+
+      <form id="reservation_form" method="post"
+        class="reservation-form">
+        {{ reservation_form | crispy }}
+        {% csrf_token %}
+        <button id="submitButton" type="submit"
+          class="btn">Submit</button>
+      </form>
+      {% else %}
+      <p>Please log in to kake a reservation</p>
+      {% endif %}
+    </div>
+  </div>
 
 {% else %}
 <p>Please log in to make a reservation or veiw an existing reservation.</p>
