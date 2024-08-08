@@ -1,6 +1,5 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
-from django.contrib import messages
 from django.views.generic.edit import CreateView
 from .models import Reservation, User
 from .forms import ReservationForm
@@ -18,6 +17,9 @@ class ReservationList(generic.ListView):
 
 
 def add_reservation(request):
+    """
+    Renders reservation form to screen.
+    """
     reservation_form = ReservationForm()
 
     if request.method == "POST":
@@ -29,10 +31,8 @@ def add_reservation(request):
             reservation.save()
             return render(
             request, 
-            "reservations/reservation.html",
+            "reservations/reservation_confirmed.html",
         )
-
-
 
     return render(
         request, 
