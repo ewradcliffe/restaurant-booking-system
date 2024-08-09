@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+{% if user.is_authenticated %}
+<p>You are logged in as {{ user }}.</p>
+<!-- Adding a reservation -->
+<form action="../updaterecord/{{ reservation.id}}/" method="post">
+{% csrf_token %}
+<label for="reservation_name">Reservation name</label>
+<input id="reservation_name" name="reservation_name" value="{{ reservation.reservation_name }}">
+<label for="reservation_date">Reservation date</label>
+<input id="reservation_date" name="reservation_date" value="{{ reservation.reservation_date }}">
+<label for="reservation_time">Reservation time</label>
+<input id="reservation_time" name="reservation_time" value="{{ reservation.reservation_time }}">
+<label for="number_of_guests">Number of guests</label>
+<input id="number_of_guests" name="number_of_guests" value="{{ reservation.number_of_guests }}">
+
+<input type="submit" value="submit">
+
+</form>
+
+{% else %}
+<p>Please log in to edit your reservation</p>
+{% endif %}
+{% endblock %}

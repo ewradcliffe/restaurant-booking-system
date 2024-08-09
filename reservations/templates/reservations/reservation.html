@@ -17,8 +17,9 @@
     <p>Date: {{reservation.reservation_date}}</p>
     <p>Time: {{reservation.reservation_time}}</p>
     <p>Guests: {{reservation.number_of_guests}}</p>
-    <p>Id: {{reservation.id}}</p>
-    <button><a href="../delete/{{reservation.id}}">Delete</a></button>
+    
+    <button><a href="../delete/{{reservation.id}}">Delete Reservation</a></button>
+    <button><a href="../edit/{{reservation.id}}">Edit Reservation</a></button>
 
 </div>
 {% endif %}

@@ -1,7 +1,6 @@
-from django.shortcuts import render, get_object_or_404, reverse
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse
+from django.shortcuts import render, get_object_or_404
 from django.template import loader
-from django.urls import reverse
 from django.views import generic
 from .models import Reservation, User
 from .forms import ReservationForm
@@ -46,7 +45,8 @@ def add_reservation(request):
     
 def delete_reservation(request, id):
     """
-    Function to delete reservations
+    Function to delete reservations.
+    Adapted from https://www.w3schools.com/django/django_delete_members.php
     """
     reservation = Reservation.objects.get(id=id)
     reservation.delete()
@@ -54,4 +54,37 @@ def delete_reservation(request, id):
             request, 
             "reservations/reservation_confirmed.html",
         )
+
+
+def edit_reservation(request, id):
+    """
+    Function to edit reservations.
+    Adapted from https://www.w3schools.com/django/django_update_record.php
+    """
+    reservation = Reservation.objects.get(id=id)
+    template = loader.get_template('reservations/edit_reservation.html')
+    context = {
+        'reservation': reservation,
+    }
+    return HttpResponse(template.render(context, request))
+
+def update_reservation(request, id):
+    """
+    Function to post updated reservation data.
+    Adapted from https://www.w3schools.com/django/django_update_record.php
+    """
+    reservation_name = request.POST['reservation_name']
+    reservation_date = request.POST['reservation_date']
+    reservation_time = request.POST['reservation_time']
+    number_of_guests = request.POST['number_of_guests']
+    reservation = Reservation.objects.get(id=id)
+    reservation.reservation_name = reservation_name
+    reservation.reservation_date = reservation_date
+    reservation.reservation_time = reservation_time
+    reservation.number_of_guests = number_of_guests
+    reservation.save()
+    return render(
+        request, 
+        "reservations/reservation_confirmed.html",
+    )
 
