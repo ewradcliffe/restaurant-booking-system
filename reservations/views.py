@@ -59,32 +59,30 @@ def delete_reservation(request, id):
 def edit_reservation(request, id):
     """
     Function to edit reservations.
-    Adapted from https://www.w3schools.com/django/django_update_record.php
     """
-    reservation = Reservation.objects.get(id=id)
-    template = loader.get_template('reservations/edit_reservation.html')
+    reservation = get_object_or_404(Reservation, id=id)
+
+    if request.method == "POST":
+        reservation_form = ReservationForm(data=request.POST, instance=reservation)
+        if reservation_form.is_valid():
+                reservation = reservation_form.save(commit=False)
+                reservation.reservation_booked_by = request.user
+                reservation.reservation_email = request.user.email
+                reservation.save()
+                return render(
+                    request, 
+                    "reservations/reservation_confirmed.html",
+            )
+    else:
+        reservation_form = ReservationForm(instance=reservation)
+
     context = {
+        "reservation_form": reservation_form,
         'reservation': reservation,
     }
-    return HttpResponse(template.render(context, request))
 
-def update_reservation(request, id):
-    """
-    Function to post updated reservation data.
-    Adapted from https://www.w3schools.com/django/django_update_record.php
-    """
-    reservation_name = request.POST['reservation_name']
-    reservation_date = request.POST['reservation_date']
-    reservation_time = request.POST['reservation_time']
-    number_of_guests = request.POST['number_of_guests']
-    reservation = Reservation.objects.get(id=id)
-    reservation.reservation_name = reservation_name
-    reservation.reservation_date = reservation_date
-    reservation.reservation_time = reservation_time
-    reservation.number_of_guests = number_of_guests
-    reservation.save()
     return render(
         request, 
-        "reservations/reservation_confirmed.html",
-    )
-
+        "reservations/edit_reservation.html",
+        context
+    )   
