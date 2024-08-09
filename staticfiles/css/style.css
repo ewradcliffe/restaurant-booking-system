@@ -33,3 +33,8 @@ body {
 .links-list > li > a > i {
     color: black;
 }
+
+.reservation-form {
+    max-width: 50%;
+    max-height: 50%;
+}
