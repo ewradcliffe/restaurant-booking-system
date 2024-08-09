@@ -38,21 +38,21 @@
                         </li>
                         <!--Signup/login/logout.
     Code from https://learn.codeinstitute.net/ django blog tutorial -->
-{% if user.is_authenticated %}
-<li class="nav-item">
-    <a class="nav-link {% if request.path == logout_url %}active{% endif %}" aria-current="page"
-        href="{% url 'account_logout' %}">Logout</a>
-</li>
-{% else %}
-<li class="nav-item">
-    <a class="nav-link {% if request.path == signup_url %}active{% endif %}" aria-current="page"
-        href="{% url 'account_signup' %}">Register</a>
-</li>
-<li class="nav-item">
-    <a class="nav-link {% if request.path == login_url %}active{% endif %}" aria-current="page"
-        href="{% url 'account_login' %}">Login</a>
-</li>
-{% endif %}
+                        {% if user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link {% if request.path == logout_url %}active{% endif %}" aria-current="page"
+                                href="{% url 'account_logout' %}">Logout</a>
+                        </li>
+                        {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link {% if request.path == signup_url %}active{% endif %}" aria-current="page"
+                                href="{% url 'account_signup' %}">Register</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {% if request.path == login_url %}active{% endif %}" aria-current="page"
+                                href="{% url 'account_login' %}">Login</a>
+                        </li>
+                        {% endif %}
                     </ul>
                 </div>
             </div>
@@ -128,7 +128,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
         integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
         crossorigin="anonymous"></script>
-
+    
 </body>
 
 </html>

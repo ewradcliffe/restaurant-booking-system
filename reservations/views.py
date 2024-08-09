@@ -1,6 +1,8 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, reverse
+from django.http import HttpResponse, HttpResponseRedirect
+from django.template import loader
+from django.urls import reverse
 from django.views import generic
-from django.views.generic.edit import CreateView
 from .models import Reservation, User
 from .forms import ReservationForm
 
@@ -42,21 +44,14 @@ def add_reservation(request):
     )
 
     
-    
+def delete_reservation(request, id):
     """
-    reservation_booked_by = User
-
-    class AddReservation(CreateView):
-
-    model = Reservation
-    template_name = "reservations/add_reservation.html"
-    fields = ('reservation_name', 'reservation_email', 'reservation_phone_number', 'reservation_date', 'reservation_time', 'number_of_guests',)
+    Function to delete reservations
     """
+    reservation = Reservation.objects.get(id=id)
+    reservation.delete()
+    return render(
+            request, 
+            "reservations/reservation_confirmed.html",
+        )
 
-
-
-
-
-
-
-    

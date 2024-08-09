@@ -15,12 +15,14 @@
 <div>
     <p>Name: {{reservation.reservation_name}}</p>
     <p>Date: {{reservation.reservation_date}}</p>
+    <p>Time: {{reservation.reservation_time}}</p>
+    <p>Guests: {{reservation.number_of_guests}}</p>
+    <p>Id: {{reservation.id}}</p>
+    <button><a href="../delete/{{reservation.id}}">Delete</a></button>
+
 </div>
 {% endif %}
 {% endfor %}
-
-
-
 
 
 <button><a href="{% url 'add-reservation' %}">Make a reservation</a></button>
