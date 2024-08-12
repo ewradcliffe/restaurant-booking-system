@@ -4,6 +4,7 @@ from django.template import loader
 from django.views import generic
 from .models import Reservation, User
 from .forms import ReservationForm
+from datetime import datetime
 
 
 # Create your views here.
@@ -17,6 +18,16 @@ class ReservationList(generic.ListView):
     template_name = "reservations/reservation.html"
 
 
+def check_time(date_choice, time_choice, datetime):
+    "Function to check booked dates and times are in the future."
+    booking_time = datetime.strptime(date_choice+' '+time_choice, '%Y-%m-%d %H:%M')
+    
+    if booking_time > datetime.now():
+        return True
+    else:
+        return False
+
+
 def add_reservation(request):
     """
     Renders reservation form to screen.
@@ -27,13 +38,31 @@ def add_reservation(request):
         reservation_form = ReservationForm(data=request.POST)
         if reservation_form.is_valid():
             reservation = reservation_form.save(commit=False)
-            reservation.reservation_booked_by = request.user
-            reservation.reservation_email = request.user.email
-            reservation.save()
-            return render(
-            request, 
-            "reservations/reservation_confirmed.html",
-        )
+            """
+            Check if date and time are in the future.
+            """
+            date = reservation.reservation_date
+            time = reservation.reservation_time
+            datetime_choice_valid = check_time(str(date), time, datetime)
+            if datetime_choice_valid:
+                print(datetime_choice_valid)
+     
+                """
+                Adds user details to reservation.
+                """
+                reservation.reservation_booked_by = request.user
+                reservation.reservation_email = request.user.email
+                reservation.reservation_created_on = datetime.now()
+                reservation.save()
+                return render(
+                request, 
+                "reservations/reservation_confirmed.html",
+             )
+
+            else:
+                print(datetime_choice_valid)
+                return render(request, "reservations/invalid_reservation.html")
+               
 
     return render(
         request, 
@@ -71,7 +100,6 @@ def confirm_delete_reservation(request, id):
             request, 
             "reservations/reservation.html",
         )
-
 
 
 def edit_reservation(request, id):
