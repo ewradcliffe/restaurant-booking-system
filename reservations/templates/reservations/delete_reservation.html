@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+
+{% if user.is_authenticated %}
+
+<p>Name: {{reservation.reservation_name}}</p>
+<p>Date: {{reservation.reservation_date}}</p>
+<p>Time: {{reservation.reservation_time}}</p>
+<p>Guests: {{reservation.number_of_guests}}</p>
+
+<p>Are you sure you want to delete this reservation?</p>
+<button><a href="../confirmdelete/{{reservation.id}}">Yes</a></button>
+<button><a href="{% url 'reservations-urls' %}">No</a></button>
+{% endif %}
+
+{% endblock %}

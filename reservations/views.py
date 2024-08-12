@@ -42,18 +42,36 @@ def add_reservation(request):
         }
     )
 
+
     
 def delete_reservation(request, id):
     """
-    Function to delete reservations.
+    Function to check user wants to delete reservation.
+    """
+    reservation = get_object_or_404(Reservation, id=id)
+    context = {
+        'reservation': reservation,
+    }
+
+    return render(
+        request, 
+        "reservations/delete_reservation.html",
+        context
+    )   
+    
+       
+def confirm_delete_reservation(request, id):
+    """
+    Function to delete reservation.
     Adapted from https://www.w3schools.com/django/django_delete_members.php
     """
-    reservation = Reservation.objects.get(id=id)
+    reservation = Reservation.objects.get(id=id)    
     reservation.delete()
     return render(
             request, 
-            "reservations/reservation_confirmed.html",
+            "reservations/reservation.html",
         )
+
 
 
 def edit_reservation(request, id):
