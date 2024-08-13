@@ -111,7 +111,15 @@ def edit_reservation(request, id):
     if request.method == "POST":
         reservation_form = ReservationForm(data=request.POST, instance=reservation)
         if reservation_form.is_valid():
-                reservation = reservation_form.save(commit=False)
+            reservation = reservation_form.save(commit=False)
+            """
+            Check if date and time are in the future.
+            """
+            date = reservation.reservation_date
+            time = reservation.reservation_time
+            datetime_choice_valid = check_time(str(date), time, datetime)
+            if datetime_choice_valid:
+                
                 reservation.reservation_booked_by = request.user
                 reservation.reservation_email = request.user.email
                 reservation.save()
@@ -119,6 +127,13 @@ def edit_reservation(request, id):
                     request, 
                     "reservations/reservation_confirmed.html",
             )
+
+            else:
+                print(datetime_choice_valid)
+                return render(request, "reservations/invalid_reservation.html")
+
+
+
     else:
         reservation_form = ReservationForm(instance=reservation)
 
