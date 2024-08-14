@@ -96,9 +96,16 @@ def confirm_delete_reservation(request, id):
     """
     reservation = Reservation.objects.get(id=id)    
     reservation.delete()
+    reservation_list = queryset = Reservation.objects.all()
+    context = {
+        'reservation_list': reservation_list,
+    }
+
+
     return render(
             request, 
             "reservations/reservation.html",
+            context
         )
 
 
