@@ -4,6 +4,15 @@
 {% if user.is_authenticated %}
 
 <p>Thank you for your booking. Please do not hesitate to contact us if you need anything else.</p>
+<div>
+    <p>Name: {{reservation.reservation_name}}</p>
+    <p>Date: {{reservation.reservation_date}}</p>
+    <p>Time: {{reservation.reservation_time}}</p>
+    <p>Guests: {{reservation.number_of_guests}}</p>
+</div>
+
+
+
 <button><a href="{% url 'reservations-urls' %}">Take me home!!</a></button>
 {% endif %}
 

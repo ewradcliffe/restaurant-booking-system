@@ -36,32 +36,24 @@ def add_reservation(request):
 
     if request.method == "POST":
         reservation_form = ReservationForm(data=request.POST)
-        if reservation_form.is_valid():
-            reservation = reservation_form.save(commit=False)
-            """
-            Check if date and time are in the future.
-            """
-            date = reservation.reservation_date
-            time = reservation.reservation_time
-            datetime_choice_valid = check_time(str(date), time, datetime)
-            if datetime_choice_valid:
-                print(datetime_choice_valid)
-     
-                """
-                Adds user details to reservation.
-                """
-                reservation.reservation_booked_by = request.user
-                reservation.reservation_email = request.user.email
-                reservation.reservation_created_on = datetime.now()
-                reservation.save()
-                return render(
-                request, 
-                "reservations/reservation_confirmed.html",
-             )
+        reservation = reservation_form.save(commit=False)
+        """
+        Adds user details to reservation.
+        """
+        reservation.reservation_booked_by = request.user
+        reservation.reservation_email = request.user.email
+        reservation.reservation_created_on = datetime.now()
+        reservation.save()
 
-            else:
-                print(datetime_choice_valid)
-                return render(request, "reservations/invalid_reservation.html")
+        context = {
+        'reservation': reservation,
+        }
+
+        return render(
+        request, 
+        "reservations/reservation_confirmed.html",
+        context
+        )
                
 
     return render(
@@ -138,8 +130,6 @@ def edit_reservation(request, id):
             else:
                 print(datetime_choice_valid)
                 return render(request, "reservations/invalid_reservation.html")
-
-
 
     else:
         reservation_form = ReservationForm(instance=reservation)
