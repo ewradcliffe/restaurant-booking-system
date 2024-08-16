@@ -2,6 +2,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404, reverse
 from django.template import loader
 from django.views import generic
+from django.contrib import messages
 from .models import Reservation, User
 from .forms import ReservationForm
 from datetime import datetime
@@ -87,7 +88,10 @@ def confirm_delete_reservation(request, id):
     """
     reservation = Reservation.objects.get(id=id)    
     reservation.delete()
+    messages.add_message(request, messages.SUCCESS,
+    'Your reservation has been deleted.')
     return HttpResponseRedirect(reverse('reservations-urls'))
+
     
     """
     reservation_list = queryset = Reservation.objects.all()

@@ -58,6 +58,23 @@
             </div>
         </nav>
 
+            <!-- Display messages 
+             Inspired by and adapted from the code institute 'I think therefore I blog' tutorial.
+             https://learn.codeinstitute.net/-->
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                {% for message in messages %}
+                <div class="alert {{ message.tags }} alert-dismissible">
+                    {{ message | safe }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
     </header>
     <main>
 
