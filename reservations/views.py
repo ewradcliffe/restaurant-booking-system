@@ -84,20 +84,6 @@ def confirm_delete_reservation(request, id):
     'Your reservation has been deleted.')
     return HttpResponseRedirect(reverse('reservations-urls'))
 
-    
-    """
-    reservation_list = queryset = Reservation.objects.all()
-    context = {
-        'reservation_list': reservation_list,
-    }
-
-
-    return render(
-            request, 
-            "reservations/reservation.html",
-            context
-        )
-    """
 
 def edit_reservation(request, id):
     """
@@ -120,15 +106,13 @@ def edit_reservation(request, id):
                 reservation.reservation_booked_by = request.user
                 reservation.reservation_email = request.user.email
                 reservation.save()
-                return render(
-                    request, 
-                    "reservations/reservation_confirmed.html",
-            )
+                messages.add_message(request, messages.SUCCESS,
+                'Your reservation has been updated!')
+                return HttpResponseRedirect(reverse('reservations-urls'))
 
             else:
-                print(datetime_choice_valid)
-                return render(request, "reservations/invalid_reservation.html")
-
+                messages.add_message(request, messages.SUCCESS,
+                'You entered a date or time in the past. Please enter a new date or time.')
     else:
         reservation_form = ReservationForm(instance=reservation)
 
