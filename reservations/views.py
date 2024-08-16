@@ -1,5 +1,5 @@
-from django.http import HttpResponse
-from django.shortcuts import render, get_object_or_404
+from django.http import HttpResponse, HttpResponseRedirect
+from django.shortcuts import render, get_object_or_404, reverse
 from django.template import loader
 from django.views import generic
 from .models import Reservation, User
@@ -63,7 +63,6 @@ def add_reservation(request):
         }
     )
 
-
     
 def delete_reservation(request, id):
     """
@@ -88,6 +87,9 @@ def confirm_delete_reservation(request, id):
     """
     reservation = Reservation.objects.get(id=id)    
     reservation.delete()
+    return HttpResponseRedirect(reverse('reservations-urls'))
+    
+    """
     reservation_list = queryset = Reservation.objects.all()
     context = {
         'reservation_list': reservation_list,
@@ -99,7 +101,7 @@ def confirm_delete_reservation(request, id):
             "reservations/reservation.html",
             context
         )
-
+    """
 
 def edit_reservation(request, id):
     """

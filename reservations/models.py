@@ -3,6 +3,7 @@ from datetime import datetime
 from django.contrib.auth.models import User
 
 
+
 # Create your models here.
 
 # reservation_time and number_of_guests code inspired by https://blog.devgenius.io/django-tutorial-on-how-to-create-a-booking-system-for-a-health-clinic-9b1920fc2b78
