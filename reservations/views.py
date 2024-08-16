@@ -37,17 +37,29 @@ def add_reservation(request):
 
     if request.method == "POST":
         reservation_form = ReservationForm(data=request.POST)
-        reservation = reservation_form.save(commit=False)
-        """
-        Adds user details to reservation.
-        """
-        reservation.reservation_booked_by = request.user
-        reservation.reservation_email = request.user.email
-        reservation.reservation_created_on = datetime.now()
-        reservation.save()
-        messages.add_message(request, messages.SUCCESS,
-        'Your reservation was successfully made!')
-        return HttpResponseRedirect(reverse('reservations-urls'))
+        if reservation_form.is_valid():
+            reservation = reservation_form.save(commit=False)
+            """
+            Check if date and time are in the future.
+            """
+            date = reservation.reservation_date
+            time = reservation.reservation_time
+            datetime_choice_valid = check_time(str(date), time, datetime)
+            if datetime_choice_valid:
+                """
+                Adds user details to reservation.
+                """
+                reservation.reservation_booked_by = request.user
+                reservation.reservation_email = request.user.email
+                reservation.reservation_created_on = datetime.now()
+                reservation.save()
+                messages.add_message(request, messages.SUCCESS,
+                'Your reservation was successfully made!')
+                return HttpResponseRedirect(reverse('reservations-urls'))
+
+            else:
+                messages.add_message(request, messages.SUCCESS,
+                'You entered a time in the past. Please enter a later time.')
 
     return render(
         request, 
@@ -112,7 +124,7 @@ def edit_reservation(request, id):
 
             else:
                 messages.add_message(request, messages.SUCCESS,
-                'You entered a date or time in the past. Please enter a new date or time.')
+                'You entered a time in the past. Please enter a later time.')
     else:
         reservation_form = ReservationForm(instance=reservation)
 

@@ -20,7 +20,7 @@ class ReservationForm(forms.ModelForm):
         model = Reservation
         fields = ('reservation_name', 'reservation_date', 'reservation_time', 'number_of_guests',)
         widgets = {
-            "reservation_date": DateInput(),#attrs={'min': date_time_now.strftime('%Y-%m-%d')}),
+            "reservation_date": DateInput(attrs={'min': date_time_now.strftime('%Y-%m-%d')}),
         }
 
   
