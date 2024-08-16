@@ -45,17 +45,9 @@ def add_reservation(request):
         reservation.reservation_email = request.user.email
         reservation.reservation_created_on = datetime.now()
         reservation.save()
-
-        context = {
-        'reservation': reservation,
-        }
-
-        return render(
-        request, 
-        "reservations/reservation_confirmed.html",
-        context
-        )
-               
+        messages.add_message(request, messages.SUCCESS,
+        'Your reservation was successfully made!')
+        return HttpResponseRedirect(reverse('reservations-urls'))
 
     return render(
         request, 
