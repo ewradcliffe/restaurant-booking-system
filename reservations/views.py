@@ -6,6 +6,8 @@ from django.contrib import messages
 from .models import Reservation, User
 from .forms import ReservationForm
 from datetime import datetime
+from django.utils import timezone
+
 
 
 # Create your views here.
@@ -19,13 +21,15 @@ class ReservationList(generic.ListView):
     template_name = "reservations/reservation.html"
 
 
-def check_time(date_choice, time_choice, datetime):
+def check_time(date_choice, time_choice, timezone):
     "Function to check booked dates and times are in the future."
-    booking_time = datetime.strptime(date_choice+' '+time_choice, '%Y-%m-%d %H:%M')
-    
-    if booking_time > datetime.now():
+    booking_time = datetime.strptime(date_choice+' '+ time_choice, '%Y-%m-%d %H:%M')
+    now = timezone.now()
+    print(now)
+    if booking_time > now:
         return True
     else:
+
         return False
 
 

@@ -1,32 +1,53 @@
 {% extends "base.html" %}
 {% block content %}
 
-{% if user.is_authenticated %}
-<p>You are logged in as {{ user }}.</p>
-{% else %}
-<p>Please log in to make a reservation or veiw an existing reservation.</p>
-{% endif %}
 
 
-<h1>Your reservations:</h1>
-{% for reservation in reservation_list %}
-{% if user == reservation.reservation_booked_by %}
 
-<div>
-    <p>Name: {{reservation.reservation_name}}</p>
-    <p>Date: {{reservation.reservation_date}}</p>
-    <p>Time: {{reservation.reservation_time}}</p>
-    <p>Guests: {{reservation.number_of_guests}}</p>
-    
-    <button><a href="../delete/{{reservation.id}}">Delete Reservation</a></button>
-    <button><a href="../edit/{{reservation.id}}">Edit Reservation</a></button>
 
+<div class="container-fluid gx-5">
+    <div class=".container-fluid">
+        <div class="row">
+            <div class="col">
+                <h1>Your reservations:</h1>
+            </div>
+            <div class="col text-end">
+                <a href="{% url 'add-reservation' %}" class="btn btn-lg col-md-6">Make a reservation</a>
+            </div>
+        </div>
+    </div>
+
+    <!--Reservations displayed here-->
+    <div class="row gy-5">
+
+        {% for reservation in reservation_list %}
+        {% if user == reservation.reservation_booked_by %}
+
+        <div class="col-md-4 gx-5">
+            <div class="card row">
+                <div class="card-body">
+                    <ul class="row list-unstyled">
+                        <li class="col-sm-6 text-start">{{reservation.reservation_date}}</li>
+                        <li class="col-sm-6 text-sm-end">{{reservation.reservation_time}}</li>
+                        <li class="col-sm-6 text-start">Name: {{reservation.reservation_name}}</li>
+                        <li class="col-sm-6 text-sm-end">Seats: {{reservation.number_of_guests}}</li>
+                    </ul>
+                    <div class="row">
+                        <a href="../delete/{{reservation.id}}" class="btn btn-lg col-md-6">Delete
+                            Reservation</a>
+                        <a href="../edit/{{reservation.id}}" class="btn btn-lg col-md-6">Edit
+                            Reservation</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {% endif %}
+        {% endfor %}
+
+    </div>
 </div>
-{% endif %}
-{% endfor %}
 
-
-<button><a href="{% url 'add-reservation' %}">Make a reservation</a></button>
 
 
 {% endblock %}

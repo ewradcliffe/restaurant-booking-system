@@ -28,6 +28,14 @@ body {
 }
 
 
+/* My Reservations page*/
+
+.reservation-card {
+    background-color: rgb(19, 77, 92);
+}
+
+
+
 /* footer*/
 
 .links-list > li > a > i {
