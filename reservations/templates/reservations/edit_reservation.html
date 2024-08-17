@@ -1,18 +1,21 @@
 {% extends "base.html" %}
 {% block content %}
 {% load crispy_forms_tags %}
+<!-- Editing a reservation -->
+<div class="container-fluid">
+    <div class="row justify-content-evenly">
+        <div class="col-md-8">
+            {% if user.is_authenticated %}
+            <form id="edit-reservation-form" method="post" class="edit-reservation-form">
+                {{ reservation_form | crispy }}
+                {% csrf_token %}
+                <button id="submitButton" type="submit" class="btn edit-reservation-btn">Submit</button>
+            </form>
+            {% else %}
+            <p>Please log in to make a reservation</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
 
-{% if user.is_authenticated %}
-<p>You are logged in as {{ user }}.</p>
-
-<form method="post">
-    {% csrf_token %}
-    {{ reservation_form.as_p }}
-    <button type="submit">Submit</button>
-</form>
-
-
-{% else %}
-<p>Please log in to make a reservation</p>
-{% endif %}
 {% endblock %}

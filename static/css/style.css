@@ -52,13 +52,25 @@ body {
     font-size: 120%;
 }
 
+.submit-reservation-btn {
+    font-size: 200%;
+}
 .submit-reservation-btn:hover {
     color:rgb(255, 249, 216);
 }
 
-.submit-reservation-btn {
+/* Add reservation page*/
+.edit-reservation-form {
+    font-size: 120%;
+}
+
+.edit-reservation-btn {
     font-size: 200%;
 }
+.edit-reservation-btn:hover {
+    color:rgb(255, 249, 216);
+}
+
 
 /* footer*/
 
