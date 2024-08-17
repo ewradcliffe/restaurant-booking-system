@@ -29,6 +29,7 @@ body {
 }
 
 /* Reservation display page*/
+
 .make-a-reservation-btn {
     font-size: 200%;
 }
@@ -44,6 +45,19 @@ body {
 
 .reservation-card-btn:hover {
     color: rgb(145, 123, 4);
+}
+
+/* Add reservation page*/
+.reservation-form {
+    font-size: 120%;
+}
+
+.submit-reservation-btn:hover {
+    color:rgb(255, 249, 216);
+}
+
+.submit-reservation-btn {
+    font-size: 200%;
 }
 
 /* footer*/
