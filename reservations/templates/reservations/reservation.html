@@ -12,7 +12,7 @@
                 <h1>Your reservations:</h1>
             </div>
             <div class="col text-end">
-                <a href="{% url 'add-reservation' %}" class="btn btn-lg col-md-6">Make a reservation</a>
+                <a href="{% url 'add-reservation' %}" class="btn btn-lg col-md-6 make-a-reservation-btn">Make a reservation</a>
             </div>
         </div>
     </div>
@@ -25,7 +25,7 @@
 
         <div class="col-md-4 gx-5">
             <div class="card row">
-                <div class="card-body">
+                <div class="card-body reservation-card">
                     <ul class="row list-unstyled">
                         <li class="col-sm-6 text-start">{{reservation.reservation_date}}</li>
                         <li class="col-sm-6 text-sm-end">{{reservation.reservation_time}}</li>
@@ -33,9 +33,9 @@
                         <li class="col-sm-6 text-sm-end">Seats: {{reservation.number_of_guests}}</li>
                     </ul>
                     <div class="row">
-                        <a href="../delete/{{reservation.id}}" class="btn btn-lg col-md-6">Delete
+                        <a href="../delete/{{reservation.id}}" class="btn btn-lg col-md-6 reservation-card-btn">Delete
                             Reservation</a>
-                        <a href="../edit/{{reservation.id}}" class="btn btn-lg col-md-6">Edit
+                        <a href="../edit/{{reservation.id}}" class="btn btn-lg col-md-6 reservation-card-btn">Edit
                             Reservation</a>
                     </div>
                 </div>

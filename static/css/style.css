@@ -10,6 +10,7 @@ body {
     font-style: normal;
 }
 
+
 /* Logo*/
 
 #logo {
@@ -27,14 +28,23 @@ body {
     padding: 2%;
 }
 
-
-/* My Reservations page*/
-
-.reservation-card {
-    background-color: rgb(19, 77, 92);
+/* Reservation display page*/
+.make-a-reservation-btn {
+    font-size: 200%;
 }
 
+.make-a-reservation-btn:hover {
+    color:rgb(255, 249, 216);
+}
 
+.reservation-card {
+    background-color:  rgb(255, 249, 216);
+    font-size: 120%;
+}
+
+.reservation-card-btn:hover {
+    color: rgb(145, 123, 4);
+}
 
 /* footer*/
 
