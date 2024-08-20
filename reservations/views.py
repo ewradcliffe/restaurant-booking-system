@@ -29,7 +29,6 @@ def check_time(date_choice, time_choice, timezone):
     if booking_time > now:
         return True
     else:
-
         return False
 
 
