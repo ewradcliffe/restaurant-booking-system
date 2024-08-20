@@ -66,7 +66,7 @@ def add_reservation(request):
 
     return render(
         request, 
-        "reservations/add_reservation.html", {
+        "reservations/make_reservation.html", {
             "reservation_form": reservation_form,
         }
     )
@@ -138,6 +138,6 @@ def edit_reservation(request, id):
 
     return render(
         request, 
-        "reservations/edit_reservation.html",
+        "reservations/make_reservation.html",
         context
     )   
