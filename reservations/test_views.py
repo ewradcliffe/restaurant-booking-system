@@ -24,7 +24,7 @@ class TestReservationViews(TestCase):
         """Sets up an instance of a reservation"""
         self.reservation = Reservation(reservation_name='Usertest', reservation_date='2024-12-31' , 
                                         reservation_time = '12:00', number_of_guests='4',  
-                                        reservation_booked_by=self.user)          
+                                        reservation_booked_by=self.user, id='1')          
         self.reservation.save()
 
 
@@ -51,11 +51,49 @@ class TestReservationViews(TestCase):
         self.assertIn(b"12:00", response.content)
         self.assertIn(b"4", response.content)
 
+    
+    def test_render_add_reservation_page(self):
+        """
+        Test to see if the add reservation function works.
+        """
+        self.client.login(username='username', password='password123!')
+        response = self.client.get(reverse('add-reservation'))
+        self.assertEqual(response.status_code, 200)
+        self.assertNotIn(b"Please log in to make a reservation", response.content)
+       
+
+    def test_render_edit_reservation_page(self):
+        """
+        Test to see if the edit reservation page works.
+        """
+        self.client.login(username='username', password='password123!')
+        response = self.client.get(reverse('edit-reservation', args=['1']))
+        self.assertEqual(response.status_code, 200)
+        self.assertNotIn(b"Please log in to make a reservation", response.content)
+        self.assertIn(b"Usertest", response.content)
+        self.assertIn(b"2024-12-31", response.content)
+        self.assertIn(b"12:00", response.content)
+        
+
+    def test_render_delete_reservation_page(self):
+        """
+        Test to see if the delete reservation page renders.
+        """
+        self.client.login(username='username', password='password123!')
+        response = self.client.get(reverse('delete-reservation', args=['1']))
+        self.assertEqual(response.status_code, 200)
+        self.assertIn(b"Usertest", response.content)
+        self.assertIn(b"Dec. 31, 2024", response.content)
+        self.assertIn(b"12:00", response.content)
+        self.assertIn(b"4", response.content)
+
+
+
+
+
 
         """
-        Tests to see if the add reservation page renders.
         Tests to see if information can be submitted through the add reservation page.
-        Tests to see if the edit reservation page renders.
         Tests to see if information can be submitted through the add reservation page.
 
         """
