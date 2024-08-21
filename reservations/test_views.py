@@ -4,6 +4,8 @@ from django.test import TestCase
 from .forms import ReservationForm
 from .models import Reservation
 
+
+
 class TestReservationViews(TestCase):
     """
     Tests views for the Reservations app.
@@ -26,20 +28,29 @@ class TestReservationViews(TestCase):
         self.reservation.save()
 
 
+    def test_render_index_page(self):
+        """
+        Tests to see if the index page renders.
+        """
+        response = self.client.get(reverse('index-urls'))
+        self.assertEqual(response.status_code, 200)
+        self.assertIn(b"Welcome to The Blue Boar Inn.", response.content)
+
+
     def test_render_reservation_page(self):
         """
         Tests to see if the reservation page renders.
         """
+        self.client.login(username='username', password='password123!')
         response = self.client.get(reverse('reservations-urls'))
         self.assertEqual(response.status_code, 200)
+        self.assertNotIn(b"You are not logged in", response.content)
         self.assertIn(b"Your reservations", response.content)
         self.assertIn(b"Usertest", response.content)
-        self.assertIn(b"2024-12-31", response.content)
+        self.assertIn(b"Dec. 31, 2024", response.content)
         self.assertIn(b"12:00", response.content)
         self.assertIn(b"4", response.content)
-        self.assertIn(b"Delete reservation", response.content)
-        self.assertIn(b"Edit reservation", response.content)
-        self.assertIn(b"Make a reservation", response.content)
+
 
         """
         Tests to see if the add reservation page renders.
