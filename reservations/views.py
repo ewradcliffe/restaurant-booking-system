@@ -10,11 +10,17 @@ from datetime import datetime
 
 # Create your views here.
 class index(generic.ListView):
+    """
+    Renders the front page.
+    """
     queryset = Reservation.objects.all()
     template_name = "reservations/index.html"
 
 
 class ReservationList(generic.ListView):
+    """
+    Renders a list of existing reservations.
+    """
     queryset = Reservation.objects.all()
     template_name = "reservations/reservation.html"
 

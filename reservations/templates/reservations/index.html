@@ -5,25 +5,39 @@
 {% block content %}
 
 <div class="container">
-    <div class="row col text-center">
-        <h1>Welcome to The Boar's Head</h1>
-    </div>
-    <div class="row align-items-start">
-      <div class="col-lg-6">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora cumque magnam sapiente quam vero quos, velit doloribus alias dolores et dicta voluptate minus iure quas laborum possimus, perferendis qui saepe!</p>
-      </div>
-      <div class="col-lg-6">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora cumque magnam sapiente quam vero quos, velit doloribus alias dolores et dicta voluptate minus iure quas laborum possimus, perferendis qui saepe!</p>
-      </div>
-    </div>
-    <div class="row align-items-start">
-        <div class="col-sm-6">
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora cumque magnam sapiente quam vero quos, velit doloribus alias dolores et dicta voluptate minus iure quas laborum possimus, perferendis qui saepe!</p>
-        </div>
-        <div class="col-sm-6">
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora cumque magnam sapiente quam vero quos, velit doloribus alias dolores et dicta voluptate minus iure quas laborum possimus, perferendis qui saepe!</p>
-        </div>
-      </div>
+  <div class="row col text-center">
+    <h1>Welcome to The Blue Boar Inn.</h1>
   </div>
+  <div class="row align-items-start">
+    <div class="col-lg-6">
+      <p>Welcome to The Blue Boar Inn, a traditional restaurant nestled deep in the heart of the English countryside.
+      </p>
+    </div>
+    <div class="col-lg-6">
+      <p>Records show an inn on this site since at least the 14th century. It is believed our name may well have been
+        inspired by the personal heraldy of the Earls of Oxford and Henry VII may well have stayed here on the way to
+        his coronation. The present building dates from the 17th Century after the original was destroyed in the civil
+        war. </p>
+    </div>
+  </div>
+  <div class="row align-items-start">
+    <div class="col-sm-6">
+      <p>We offer a selection of hearty, traditional dishes with a contemporary twist. Our chef's have experience at
+        some of the country's most prestigious establishments and we work directly with local producers to source the
+        very best ingredients, so you can always be assured your meal will be of the very highest standard. </p>
+    </div>
+    <div class="col-sm-6">
+      <p>With roaring fires and a relaxed atmosphere we are perfect after a day exploring the countryside. Four legged
+        friends are welcome.</p>
+      <p>So why not reserve your placetoday. We can't wait to hear from you!</p>
+    </div>
+  </div>
+</div>
+  <div class="row">
+    <div class="col">
+      <a href="{% url 'add-reservation' %}" class="btn btn-lg make-a-reservation-btn d-flex justify-content-center">Make a reservation</a>
+  </div>
+  
+</div>
 
 {% endblock %}
