@@ -12,7 +12,6 @@ body {
 
 
 /* Logo*/
-
 #logo {
     font-family: "Bokor", system-ui;
     font-weight: 400;
@@ -72,9 +71,12 @@ body {
     color:rgb(255, 249, 216);
 }
 
+/* messages pop up */
+.messages-pop-up {
+    font-size: 200%;
+}
 
-/* footer*/
-
+/* footer */
 .links-list > li > a > i {
     color: black;
 }

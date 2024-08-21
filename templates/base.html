@@ -69,11 +69,18 @@
 
         <div class="container">
             <div class="row">
-                <div class="col">
+                <div class="col messages-pop-up">
                     {% for message in messages %}
-                    <div class="alert {{ message.tags }} alert-dismissible">
-                        {{ message | safe }}
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    <div class="alert {{ message.tags }} alert-dismissible ">
+                        <div class="row d-flex justify-content-center">
+                            <div class="col-8 text-end">
+                                {{ message | safe }}
+                            </div>
+                            <div class="col-2">
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                          </div>
+                    
                     </div>
                     {% endfor %}
                 </div>
