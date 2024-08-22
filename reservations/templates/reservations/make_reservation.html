@@ -6,10 +6,15 @@
     <div class="row justify-content-evenly">
         <div class="col-md-8">
             {% if user.is_authenticated %}
-            <form id="edit-reservation-form" method="post" class="edit-reservation-form">
+            <form id="make-reservation-form" method="post" class="make-reservation-form">
                 {{ reservation_form | crispy }}
                 {% csrf_token %}
-                <button id="submitButton" type="submit" class="btn edit-reservation-btn">Submit</button>
+                <div class="row">
+                    <div class="col d-flex justify-content-center">
+                        <button id="submitButton" type="submit"
+                            class="btn make-reservation-btn">Submit</button>
+                    </div>
+                </div>
             </form>
             {% else %}
             <p>Please log in to make a reservation</p>
