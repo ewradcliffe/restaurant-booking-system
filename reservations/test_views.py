@@ -24,7 +24,7 @@ class TestReservationViews(TestCase):
         """Sets up an instance of a reservation"""
         self.reservation = Reservation(reservation_name='Usertest', reservation_date='2024-12-31' , 
                                         reservation_time = '12:00', number_of_guests='4',  
-                                        reservation_booked_by=self.user, id='1')          
+                                        reservation_booked_by=self.user)          
         self.reservation.save()
 
 
@@ -42,6 +42,7 @@ class TestReservationViews(TestCase):
         Tests to see if the reservation page renders.
         """
         self.client.login(username='username', password='password123!')
+        self.assertTrue(self.client.login(username='username', password='password123!'))
         response = self.client.get(reverse('reservations-urls'))
         self.assertEqual(response.status_code, 200)
         self.assertNotIn(b"You are not logged in", response.content)
@@ -54,7 +55,7 @@ class TestReservationViews(TestCase):
     
     def test_render_add_reservation_page(self):
         """
-        Test to see if the add reservation function works.
+        Test to see if the add reservation page is rendered.
         """
         self.client.login(username='username', password='password123!')
         response = self.client.get(reverse('add-reservation'))
@@ -88,12 +89,71 @@ class TestReservationViews(TestCase):
         self.assertIn(b"4", response.content)
 
 
-
-
-
-
+    def test_successful_add_reservation(self):
         """
-        Tests to see if information can be submitted through the add reservation page.
-        Tests to see if information can be submitted through the add reservation page.
-
+        Test for making a reservation
         """
+        self.client.login(username='username', password='password123!')
+        reservation = {
+            'reservation_name': 'Usertest', 
+            'reservation_date': '2024-12-31', 
+            'reservation_time': '13:00', 
+            'number_of_guests':'2'  
+        }
+        response = self.client.post(reverse('add-reservation'), reservation)
+        
+        """Tests to see if we are redirected after submitting"""
+        self.assertEqual(response.status_code, 302)
+        response = self.client.get(reverse('reservations-urls'))
+        self.assertEqual(response.status_code, 200)
+        self.assertIn(b'Your reservation was successfully made!', response.content)
+
+
+    def test_successful_edit_reservation(self):
+        """
+        Test for editing a reservation
+        In this case I am updating the number of guests from 4 to 2.
+        """
+        self.client.login(username='username', password='password123!')
+        reservation = {
+            'reservation_name': 'Usertest', 
+            'reservation_date': '2024-12-31', 
+            'reservation_time': '12:00', 
+            'number_of_guests':'2'  
+        }
+
+        response = self.client.post(reverse('edit-reservation', args=['1']), reservation)
+        """Tests to see if we are redirected after submitting"""
+        self.assertEqual(response.status_code, 302)
+
+        response = self.client.get(reverse('reservations-urls'))
+        self.assertEqual(response.status_code, 200)
+        self.assertIn(b"Usertest", response.content)
+        self.assertIn(b"Dec. 31, 2024", response.content)
+        self.assertIn(b"12:00", response.content)
+        self.assertIn(b"2", response.content)
+    
+        
+    def test_successful_delete_reservation(self):
+        """
+        Test for deleting a reservation
+        """
+        self.client.login(username='username', password='password123!')
+        reservation = {
+            'reservation_name': 'Usertest', 
+            'reservation_date': '2024-12-31', 
+            'reservation_time': '13:00', 
+            'number_of_guests':'2'  
+        }
+        response = self.client.post(reverse('confirm-delete-reservation', args=['1']), reservation)
+
+        """Tests to see if we are redirected after deleting"""
+        self.assertEqual(response.status_code, 302)
+
+        response = self.client.get(reverse('reservations-urls'))
+        self.assertEqual(response.status_code, 200)
+        self.assertNotIn(b"Usertest", response.content)
+        self.assertNotIn(b"Dec. 31, 2024", response.content)
+        self.assertNotIn(b"13:00", response.content)
+
+
