@@ -1,4 +1,3 @@
-
 /* Google fonts import */
 @import url('https://fonts.googleapis.com/css2?family=Bokor&family=IM+Fell+English+SC&display=swap');
 
@@ -11,13 +10,26 @@ body {
 }
 
 
+/* header */
+.header {
+    background-color: rgb(243, 216, 65);
+    padding-bottom: 2%;
+}
+
+
 /* Logo*/
 #logo {
     font-family: "Bokor", system-ui;
     font-weight: 400;
     font-style: normal;
-    font-size: 400%;
+    font-size: 250%;
+    max-width: 75%;
     padding: 0% 2%;
+}
+
+
+#logo:hover {
+    color: rgb(145, 123, 4);
 }
 
 
@@ -35,11 +47,11 @@ body {
 }
 
 .make-a-reservation-btn:hover {
-    color:rgb(255, 249, 216);
+    color: rgb(255, 249, 216);
 }
 
 .reservation-card {
-    background-color:  rgb(255, 249, 216);
+    background-color: rgb(255, 249, 216);
     font-size: 120%;
 }
 
@@ -55,8 +67,9 @@ body {
 .make-reservation-btn {
     font-size: 200%;
 }
+
 .make-reservation-btn:hover {
-    color:rgb(255, 249, 216);
+    color: rgb(255, 249, 216);
 }
 
 
@@ -71,12 +84,25 @@ body {
     padding-top: 2%;
 }
 
-.links-list > li {
+.links-list>li {
     background-color: rgb(243, 216, 65);
     border: none;
 }
 
-.links-list > li > a > i {
+.links-list>li>a>i {
     color: black;
 }
 
+
+/* Media Queries*/
+/*Tablets and up (768px+)*/
+
+@media screen and (min-width: 768px) {
+
+    /* Logo*/
+    #logo {
+
+        font-size: 400%;
+
+    }
+}

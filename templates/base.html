@@ -18,18 +18,18 @@
 
 <body>
     <!-- header -->
-    <header>
+    <header class="header fixed-top">
         <!-- navbar -->
         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
                 <a class="navbar-brand" href="{% url 'index-urls' %}" id="logo">The Blue Boar Inn</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                <button class="navbar-toggler m-1" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'index-urls' %}">Home</a>
                         </li>
@@ -56,11 +56,14 @@
                     </ul>
                 </div>
             </div>
-            {% if user.is_authenticated %}
-            <p>You are logged in as {{ user }}.</p>
-            {% else %}
-            <p>You are not logged in. Please log in to make a reservation or veiw existing reservations.</p>
-            {% endif %}
+            <div>
+                {% if user.is_authenticated %}
+                <p class="m-2">You are logged in as {{ user }}.</p>
+                {% else %}
+                <p class="m-2">You are not logged in.<span class="d-none d-md-block">Please log in to make a reservation
+                        or veiw existing reservations.</span></p>
+                {% endif %}
+            </div>
         </nav>
 
         <!-- Display messages 
@@ -77,16 +80,16 @@
                                 {{ message | safe }}
                             </div>
                             <div class="col-2">
-                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                    aria-label="Close"></button>
                             </div>
-                          </div>
-                    
+                        </div>
+
                     </div>
                     {% endfor %}
                 </div>
             </div>
         </div>
-
     </header>
     <main>
 
@@ -116,17 +119,18 @@
                 <div class="col-lg-4 col-md-4 text-center">
                     <h5 class="d-none d-md-block">links</h5>
                     <ul class="list-unstyled list-group flex-md-column flex-row links-list">
-                        <li class="list-group-item flex-fill"><a href="https://www.facebook.com/" target="_blank" rel="noopener"
-                                aria-label="Visit us on Facebook (opens in a new tab)"><i
+                        <li class="list-group-item flex-fill"><a href="https://www.facebook.com/" target="_blank"
+                                rel="noopener" aria-label="Visit us on Facebook (opens in a new tab)"><i
                                     class="fa-brands fa-facebook"></i></a></li>
                         <li class="list-group-item flex-fill"><a href="https://x.com/" target="_blank" rel="noopener"
                                 aria-label="Visit us on Twitter (opens in a new tab)"><i
                                     class="fa-brands fa-twitter"></i></a></li>
-                        <li class="list-group-item flex-fill"><a href="https://www.thegoodfoodguide.co.uk/" target="_blank" rel="noopener"
+                        <li class="list-group-item flex-fill"><a href="https://www.thegoodfoodguide.co.uk/"
+                                target="_blank" rel="noopener"
                                 aria-label="Visit us on The Good Food guide (opens in a new tab)"><i
                                     class="fa-solid fa-utensils"></i></a></li>
-                        <li class="list-group-item flex-fill"><a href="https://www.tripadvisor.co.uk/" target="_blank" rel="noopener"
-                                aria-label="Visit us on Tripadvisor (opens in a new tab)"><i
+                        <li class="list-group-item flex-fill"><a href="https://www.tripadvisor.co.uk/" target="_blank"
+                                rel="noopener" aria-label="Visit us on Tripadvisor (opens in a new tab)"><i
                                     class="fa-solid fa-car-side"></i></a></li>
                     </ul>
                 </div>
