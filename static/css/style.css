@@ -66,11 +66,17 @@ body {
 }
 
 /* footer */
+.footer {
+    background-color: rgb(243, 216, 65);
+    padding-top: 2%;
+}
+
+.links-list > li {
+    background-color: rgb(243, 216, 65);
+    border: none;
+}
+
 .links-list > li > a > i {
     color: black;
 }
 
-.reservation-form {
-    max-width: 50%;
-    max-height: 50%;
-}
