@@ -56,11 +56,11 @@
                     </ul>
                 </div>
             </div>
-            <div>
+            <div class="justify-content-end">
                 {% if user.is_authenticated %}
                 <p class="m-2">You are logged in as {{ user }}.</p>
                 {% else %}
-                <p class="m-2">You are not logged in.<span class="d-none d-md-block">Please log in to make a reservation
+                <p class="m-2">You are not logged in.<span class="d-none d-lg-block">Please log in to make a reservation
                         or veiw existing reservations.</span></p>
                 {% endif %}
             </div>
@@ -91,8 +91,7 @@
             </div>
         </div>
     </header>
-    <main>
-
+    <main class="main-body">
         <!-- block content here -->
         {% block content %}
         {% endblock content %}

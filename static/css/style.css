@@ -2,6 +2,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Bokor&family=IM+Fell+English+SC&display=swap');
 
 /* General styles */
+.main-body {
+    margin-top: 125px;
+}
+
 body {
     background-color: rgb(243, 216, 65);
     font-family: "IM Fell English SC", serif;
@@ -13,7 +17,6 @@ body {
 /* header */
 .header {
     background-color: rgb(243, 216, 65);
-    padding-bottom: 2%;
 }
 
 
@@ -93,16 +96,17 @@ body {
     color: black;
 }
 
-
 /* Media Queries*/
 /*Tablets and up (768px+)*/
 
 @media screen and (min-width: 768px) {
+    /* main*/
+    .main-body {
+        margin-top: 150px;
+    }
 
     /* Logo*/
     #logo {
-
         font-size: 400%;
-
     }
 }

@@ -1,8 +1,11 @@
-
 /* Google fonts import */
 @import url('https://fonts.googleapis.com/css2?family=Bokor&family=IM+Fell+English+SC&display=swap');
 
 /* General styles */
+.main-body {
+    margin-top: 125px;
+}
+
 body {
     background-color: rgb(243, 216, 65);
     font-family: "IM Fell English SC", serif;
@@ -10,14 +13,26 @@ body {
     font-style: normal;
 }
 
-/* Logo*/
 
+/* header */
+.header {
+    background-color: rgb(243, 216, 65);
+}
+
+
+/* Logo*/
 #logo {
     font-family: "Bokor", system-ui;
     font-weight: 400;
     font-style: normal;
-    font-size: 400%;
+    font-size: 250%;
+    max-width: 75%;
     padding: 0% 2%;
+}
+
+
+#logo:hover {
+    color: rgb(145, 123, 4);
 }
 
 
@@ -28,13 +43,70 @@ body {
 }
 
 
-/* footer*/
+/* Reservation display page and delete reservation page.*/
 
-.links-list > li > a > i {
+.make-a-reservation-btn {
+    font-size: 200%;
+}
+
+.make-a-reservation-btn:hover {
+    color: rgb(255, 249, 216);
+}
+
+.reservation-card {
+    background-color: rgb(255, 249, 216);
+    font-size: 120%;
+}
+
+.reservation-card-btn:hover {
+    color: rgb(145, 123, 4);
+}
+
+/* Add/edit reservation page*/
+.make-reservation-form {
+    font-size: 120%;
+}
+
+.make-reservation-btn {
+    font-size: 200%;
+}
+
+.make-reservation-btn:hover {
+    color: rgb(255, 249, 216);
+}
+
+
+/* messages pop up */
+.messages-pop-up {
+    font-size: 200%;
+}
+
+/* footer */
+.footer {
+    background-color: rgb(243, 216, 65);
+    padding-top: 2%;
+}
+
+.links-list>li {
+    background-color: rgb(243, 216, 65);
+    border: none;
+}
+
+.links-list>li>a>i {
     color: black;
 }
 
-.reservation-form {
-    max-width: 50%;
-    max-height: 50%;
+/* Media Queries*/
+/*Tablets and up (768px+)*/
+
+@media screen and (min-width: 768px) {
+    /* main*/
+    .main-body {
+        margin-top: 150px;
+    }
+
+    /* Logo*/
+    #logo {
+        font-size: 400%;
+    }
 }
