@@ -58,6 +58,7 @@ INSTALLED_APPS = [
     'django_summernote',
     'cloudinary',
     'reservations',
+    'menu',
 ]
 
 SITE_ID = 1
