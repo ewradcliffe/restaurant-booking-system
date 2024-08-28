@@ -36,6 +36,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'reservations-urls' %}">Reservations</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'menu' %}">Menu</a>
+                        </li>
                         <!--Signup/login/logout.
                         Code from https://learn.codeinstitute.net/ django blog tutorial -->
                         {% if user.is_authenticated %}
