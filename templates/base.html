@@ -60,7 +60,12 @@
                 {% if user.is_authenticated %}
                 <p class="m-2">You are logged in as {{ user }}.</p>
                 {% else %}
-                <p class="m-2">You are not logged in.<span class="d-none d-lg-block">Please log in to make a reservation
+                <p class="m-2">You are not <a rel="stylesheet" href="{% url 'account_login' %}"
+                        class="btn sign-up-btn">logged in.</a><span class="d-none d-lg-block">Please <a
+                            rel="stylesheet" href="{% url 'account_login' %}" class="btn sign-up-btn">log in
+                        </a>or
+                        <a rel="stylesheet" href="{% url 'account_signup' %}" class="btn sign-up-btn">sign
+                            up</a> to make a reservation
                         or veiw existing reservations.</span></p>
                 {% endif %}
             </div>
