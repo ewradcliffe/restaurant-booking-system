@@ -17,7 +17,7 @@ body {
 
 /* header */
 .header {
-    background-color: rgb(243, 216, 65);
+    background-color: rgb(173, 155, 52);
 }
 
 
@@ -62,11 +62,11 @@ body {
 }
 
 .make-a-reservation-btn:hover {
-    color: rgb(255, 249, 216);
+    color: rgb(145, 123, 4);
 }
 
 .reservation-card {
-    background-color: rgb(255, 249, 216);
+    background-color: rgb(250, 230, 120);
     font-size: 120%;
 }
 
@@ -84,7 +84,7 @@ body {
 }
 
 .make-reservation-btn:hover {
-    color: rgb(255, 249, 216);
+    color: rgb(145, 123, 4);
 }
 
 
@@ -95,12 +95,12 @@ body {
 
 /* footer */
 .footer {
-    background-color: rgb(243, 216, 65);
+    background-color: rgb(173, 155, 52);
     padding-top: 2%;
 }
 
 .links-list>li {
-    background-color: rgb(243, 216, 65);
+    background-color: rgb(173, 155, 52);
     border: none;
 }
 
@@ -112,6 +112,7 @@ body {
 /*Tablets and up (768px+)*/
 
 @media screen and (min-width: 768px) {
+
     /* main*/
     .main-body {
         margin-top: 150px;
