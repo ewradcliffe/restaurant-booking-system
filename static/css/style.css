@@ -4,10 +4,11 @@
 /* General styles */
 .main-body {
     margin-top: 125px;
+    margin-bottom: 125px;
 }
 
 body {
-    background-color: rgb(243, 216, 65);
+    background-color: rgb(253, 248, 216);
     font-family: "IM Fell English SC", serif;
     font-weight: 400;
     font-style: normal;
@@ -42,6 +43,17 @@ body {
     padding: 2%;
 }
 
+/* Index.html page. */
+.index-page-text {
+    padding: 5%;
+    font-size: 120%;
+}
+
+.index-page-image {
+    height: 100%;
+    width: 100%;
+    padding: 5%;
+}
 
 /* Reservation display page and delete reservation page.*/
 
