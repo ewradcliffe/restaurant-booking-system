@@ -9,7 +9,6 @@ class menu(generic.ListView):
     """
     Renders the menu to the page
     """
-    
 
     #queryset = Menu.objects.all()
     #template_name = "menu.html"
