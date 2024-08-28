@@ -8,6 +8,62 @@
             <h1>Menu</h1>
         </div>
     </div>
+    <h2>Starter</h2>
+    {% for entry in menu_list %}
+    {% if entry.menu_entry_type == 'Starter' %}
+    <div class="row">
+        <div class="col-6">
+            <ul class="row list-unstyled">
+                <li>{{entry.menu_entry_name}}</li>
+                <li>{{entry.menu_entry_description}}</li>
+                <li>£{{entry.menu_entry_price}}</li>
+            </ul>
+        </div>
+    </div>
+    {% endif%}
+    {% endfor%}
+    <h2>Main</h2>
+    {% for entry in menu_list %}
+    {% if entry.menu_entry_type == 'Main' %}
+    <div class="row">
+        <div class="col-6">
+            <ul class="row list-unstyled">
+                <li>{{entry.menu_entry_name}}</li>
+                <li>{{entry.menu_entry_description}}</li>
+                <li>£{{entry.menu_entry_price}}</li>
+            </ul>
+        </div>
+    </div>
+    {% endif%}
+    {% endfor%}
+    <h2>Dessert</h2>
+    {% for entry in menu_list %}
+    {% if entry.menu_entry_type == 'Dessert' %}
+    <div class="row">
+        <div class="col-6">
+            <ul class="row list-unstyled">
+                <li>{{entry.menu_entry_name}}</li>
+                <li>{{entry.menu_entry_description}}</li>
+                <li>£{{entry.menu_entry_price}}</li>
+            </ul>
+        </div>
+    </div>
+    {% endif%}
+    {% endfor%}
+    <h2>Drinks</h2>
+    {% for entry in menu_list %}
+    {% if entry.menu_entry_type == 'Drinks' %}
+    <div class="row">
+        <div class="col-6">
+            <ul class="row list-unstyled">
+                <li>{{entry.menu_entry_name}}</li>
+                <li>{{entry.menu_entry_description}}</li>
+                <li>£{{entry.menu_entry_price}}</li>
+            </ul>
+        </div>
+    </div>
+    {% endif %}
+    {% endfor%}
 </div>
 
 {% endblock %}
