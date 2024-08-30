@@ -55,14 +55,26 @@ body {
     padding: 5%;
 }
 
+/* Sign up status*/
+.sign-up-btn {
+    padding: 0;
+    margin-top: -1px;
+}
+
+.sign-up-btn:hover {
+    color: rgb(145, 123, 4)
+}
+
+
 /* Reservation display page and delete reservation page.*/
 
 .make-a-reservation-btn {
     font-size: 200%;
+    color: rgb(145, 123, 4);
 }
 
 .make-a-reservation-btn:hover {
-    color: rgb(145, 123, 4);
+    color: rgb(37, 32, 1);
 }
 
 .reservation-card {
@@ -71,7 +83,7 @@ body {
 }
 
 .reservation-card-btn:hover {
-    color: rgb(145, 123, 4);
+    color: rgb(37, 32, 1);
 }
 
 /* Add/edit reservation page*/
@@ -84,7 +96,19 @@ body {
 }
 
 .make-reservation-btn:hover {
-    color: rgb(145, 123, 4);
+    color: rgb(37, 32, 1);
+}
+
+
+/* Menu Page */
+.menu-item-catagory {
+    border-bottom: 1px solid rgb(150, 148, 148);
+    margin-top: 5%;
+}
+
+.menu-item-entry {
+    border: 1px solid rgb(150, 148, 148);
+    border-radius: 10px;
 }
 
 
