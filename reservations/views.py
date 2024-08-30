@@ -28,7 +28,6 @@ class ReservationList(generic.ListView):
 def check_time(date_choice, time_choice, timezone):
     "Function to check booked dates and times are in the future."
     booking_time = datetime.strptime(date_choice+' '+ time_choice, '%Y-%m-%d %H:%M')
-    print(datetime.now(), booking_time)
     if booking_time > datetime.now():
         return True
     else:
