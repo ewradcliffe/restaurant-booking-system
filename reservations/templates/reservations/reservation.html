@@ -8,17 +8,16 @@
                 <h1>Your reservations:</h1>
             </div>
             <div class="col text-end">
-                <a href="{% url 'add-reservation' %}" class="btn btn-lg col-md-6 make-a-reservation-btn">Make a reservation</a>
+                <a href="{% url 'add-reservation' %}" class="btn btn-lg col-md-6 make-a-reservation-btn">Make a
+                    reservation</a>
             </div>
         </div>
     </div>
-
     <!--Reservations displayed here-->
     <div class="row gy-5">
-
+        {% if user.is_authenticated %}
         {% for reservation in reservation_list %}
         {% if user == reservation.reservation_booked_by %}
-
         <div class="col-md-4 gx-5">
             <div class="card row">
                 <div class="card-body reservation-card">
@@ -37,13 +36,21 @@
                 </div>
             </div>
         </div>
-
         {% endif %}
         {% endfor %}
-
+    </div>
+    <div class="row">
+        <div class="col-md-4 gx-5">
+            {% else %}
+            <p>You are not <a rel="stylesheet" href="{% url 'account_login' %}"
+                    class="btn sign-up-btn">logged in.</a><span class="d-none d-xl-block">Please <a rel="stylesheet"
+                        href="{% url 'account_login' %}" class="btn sign-up-btn">log in
+                    </a>or
+                    <a rel="stylesheet" href="{% url 'account_signup' %}" class="btn sign-up-btn">sign
+                        up</a> to make a reservation
+                    or veiw existing reservations.</span></p>
+            {% endif %}
+        </div>
     </div>
 </div>
-
-
-
 {% endblock %}
