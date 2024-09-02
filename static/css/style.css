@@ -117,6 +117,18 @@ body {
     font-size: 200%;
 }
 
+/* Signup, sign in and sign out pages */
+.validation-button {
+    font-size: 200%;
+}
+
+.validation-button:hover {
+    color: rgb(255, 246, 190);
+}
+
+
+
+
 /* footer */
 .footer {
     background-color: rgb(173, 155, 52);
