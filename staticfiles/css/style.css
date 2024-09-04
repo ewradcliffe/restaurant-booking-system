@@ -4,7 +4,7 @@
 /* General styles */
 .main-body {
     margin-top: 125px;
-    margin-bottom: 125px;
+    margin-bottom: 200px;
 }
 
 body {
@@ -117,10 +117,22 @@ body {
     font-size: 200%;
 }
 
+/* Signup, sign in and sign out pages */
+.validation-button {
+    font-size: 200%;
+}
+
+.validation-button:hover {
+    color: rgb(255, 246, 190);
+}
+
+
+
+
 /* footer */
 .footer {
     background-color: rgb(173, 155, 52);
-    padding-top: 2%;
+    padding-top: 1%;
 }
 
 .links-list>li {

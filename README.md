@@ -33,6 +33,7 @@ Both manual and automated tests were used in the testing of the programme.
 | General | Menu page fully renders with all content visible | ✓ |
 | General | Header collapses to dropdown on small screens | ✓ |
 | General | Footer minimised on small screens | ✓ |
+| General | latest version deployed to Heroku | ✓ |
 | Access | Users able to login with username and email | ✓ |
 | Access | User given feedback as to if they are logged in or not | ✓ |
 | Access | Log in feedback links to sign up and log in pages | ✓ |
@@ -80,6 +81,70 @@ All tests pass as per below:
 
 ![Automated tests](static/images/automatedtest.png "Automated tests")
 
+## Deployment
+The application was created on Gitpod using The Code Institute template (https://github.com/Code-Institute-Org/ci-full-template) and VS Code Plugin and deployed to Github with the following steps:
+
+Login to Github, otherwise create an account.
+
+Navigate to the repository ('Explore -> 'ewradcliffe/restaurant-booking-system') or follow the link (https://github.com/ewradcliffe/restaurant-booking-system).
+
+Please note that to save any changes:
+
+Save as usual
+
+To commit changes, enter 'git add .' in the terminal and then enter 'git commit -m "summarise changes."
+Once all changes are made use the command 'git push' to push changes to github.
+
+##### To fork:
+
+Click fork in the top right hand corner, and create new fork.
+
+Confirm the owner of the fork, the repository name and description.
+
+Click "Create fork".
+
+##### To clone:
+
+To clone, you must first fork the repository as per above.
+
+Click on the "Code" button and copy the URL.
+
+In Git Bash, navigate to the location you would like to create the cloned directory.
+
+Enter git clone, paste the URL, and press enter.
+
+##### Prior to deployment
+If any changes have been made to the static files, please enter the command python3 manage.py collectstatic. You will be asked if you would like to overwrite existing files. Enter 'yes' to make sure all static files are collected for deployment.
+
+In setting.py set DEBUG to FALSE to allow for debugging outside of the local environment.
+
+Add, commit and push your changes to github.
+
+##### Heroku
+
+The programme is deployed on Heroku ('https://theboarshead-a33405e8a5e0.herokuapp.com/')
+
+To update deployments, navigate to ('https://heroku.com') and either login, or follow the steps to create an account. Navigate to the deployment tab, scroll to the bottom and click deploy branch.
+
+To create a new app navigate to the dashboard, click on the 'New' button and click 'Create new app' from the dropdown. Give the app a name, select your region and click create app. Please note that app names need to be unique to the platform as a whole. Heroku will not accept spaces as characters. You will need to use hyphens.
+
+To link the database to Heroku navigate to the 'Settings' tab and click 'Reveal Config Vars' You will need to add a key of DATABASE_URL and a value of either the PostgreSQL database linked in settings (if linking to this project), or your own database. You will also need to add SECRET_KEY as a key and the value of the secret key found in env.py
+
+Navigate to the 'Deployment' tab. You will have the option to set up automatic deployment so the app is automatically updated with any changes pushed to github.
+
+Then connect your GitHub repository and click 'deploy branch'
+
+## Future development.
+
+It is reccomended that The Django documentation ('https://www.djangoproject.com/') is studied before any changes are made.
+
+## Technologies used.
+Python 3.12.2
+Django 4.2.14
+Heroku
+PostgreSQL
+Summernote
+Cloudinary is installed, but not used in the final version
 
 
 ### Credits.
