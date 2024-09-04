@@ -8,7 +8,6 @@ class TestReservationForm(TestCase):
     https://learn.codeinstitute.net/
     """
 
-
     def test_form_is_valid(self):
         """
         Tests form is valid.

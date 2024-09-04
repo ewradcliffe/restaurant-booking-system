@@ -50,9 +50,6 @@ class Reservation(models.Model):
     reservation_created_on = models.DateTimeField(auto_now_add=True)
     reservation_updated_on = models.DateTimeField(auto_now=True)
 
-    # NB I have not set an on delete on reservation_booked_by because I want staff
-    # to be able to make reservations on the behalf of others.
-
     class Meta:
         """
         Orders reservations. Soonest reservations first."

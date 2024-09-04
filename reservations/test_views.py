@@ -9,6 +9,8 @@ from .models import Reservation
 class TestReservationViews(TestCase):
     """
     Tests views for the Reservations app.
+    Tests are derived from The code institute 'I think therefore I blog' module.
+    https://learn.codeinstitute.net/
     """
     def setUp(self):
 

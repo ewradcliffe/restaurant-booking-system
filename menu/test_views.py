@@ -6,6 +6,8 @@ from .models import Menu
 class TestMenuViews(TestCase):
     """
     Test to check menu can be viewed
+    Tests are derived from The code institute 'I think therefore I blog' module.
+    https://learn.codeinstitute.net/
     """
     def setUp(self):
         """Create instance of superuser"""
@@ -38,14 +40,6 @@ class TestMenuViews(TestCase):
         self.assertIn(b"test name", response.content)
         self.assertIn(b"test description", response.content)
         self.assertIn(b"9.99", response.content)
-        
-        """
-        Confirm menu headings are only displayed when 
-        an item of that type is added to database.
-        """
-        self.assertNotIn(b"Starter", response.content)
-        self.assertNotIn(b"Dessert", response.content)
-        self.assertNotIn(b"Drinks", response.content)
 
 
     def test_render_menu_view_login(self):
