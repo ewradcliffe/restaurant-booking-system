@@ -267,8 +267,22 @@ The below pages were put through the [W3C validator](https://validator.w3.org/) 
 
 |  Page  | Pass | 
 | :----- | :--: | 
-|  | ✓   |
+| base.html (logged out) | ✓   |
+| index.html (logged in) | ✓   |
+| reservations.html (logged out) | ✓   |
+| reservations.html (logged in) | ✓   |
+| make_reservations.html | ✓   |
+| delete_reservations.html | ✓   |
+| menu.html | ✓   |
+| logout.html | ✓   |
+| login.html | ✓   |
+| password_reset.html | ✓   |
+| signup.html | x |
 
+Signup HTML returns four errors. Unfortunately, these are all in the rendering of the form in the lines below and are inaccessable for editing.
+
+![Signup error](static/images/signuperrorone.png "signup error")
+![Signup error](static/images/signuperror.png "signup error")
 
 ##### CSS
 The below pages were put through the [W3C validator](https://jigsaw.w3.org/css-validator/#validate_by_input)
@@ -277,8 +291,6 @@ The below pages were put through the [W3C validator](https://jigsaw.w3.org/css-v
 | static/css/style.css | ✓   | Imported style sheets are not checked in direct input and file upload modes |
 
 The single CSS style sheet passes without error, and with the message listed above. This simply means the check is limited only to this page.
-
-
 
 ##### PEP8
 The below pages were put through the [W3C validator](https://pep8ci.herokuapp.com/#) and returned no errors

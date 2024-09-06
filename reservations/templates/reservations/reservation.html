@@ -42,9 +42,9 @@
     <div class="row">
         <div class="col-md-4 gx-5">
             {% else %}
-            <p>You are not <a rel="stylesheet" href="{% url 'account_login' %}"
-                    class="btn sign-up-btn">logged in.</a><span class="d-none d-xl-block">Please <a rel="stylesheet"
-                        href="{% url 'account_login' %}" class="btn sign-up-btn">log in
+            <p>You are not <a rel="stylesheet" href="{% url 'account_login' %}" class="btn sign-up-btn">logged
+                    in.</a><span class="d-none d-xl-block">Please <a rel="stylesheet" href="{% url 'account_login' %}"
+                        class="btn sign-up-btn">log in
                     </a>or
                     <a rel="stylesheet" href="{% url 'account_signup' %}" class="btn sign-up-btn">sign
                         up</a> to make a reservation
@@ -52,5 +52,4 @@
             {% endif %}
         </div>
     </div>
-</div>
-{% endblock %}
+    {% endblock %}
