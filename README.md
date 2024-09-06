@@ -134,42 +134,60 @@ The site was designed to have intuitve navigation and use, and follow the princi
 
 A consistant header and footer appears on all pages. The header consists of a navigation bar with the restaurant logo in the top left hand corner and if clicked returns the user to the home page. A three bar 'burger' button opens a drop down menu when clicked, allowing the user quick navigation to the home page, the reservation page, the menu page, the register and log in page (if not logged in) or the sign out page (if logged in). On  screens of 980px and above the burger button is replaced with individual tabs for the above pages. The navigaton bar also gives the user login status. This can also be used to navigate to the log in or register pages if they are not logged in. The footer displays links to social media sites and on screens of 768px and above the footer expands to give the opening hours and address of the restaurant.
 
-- Header and footer picture for small and large screens.
+Mobile and large screen vesions of the header and footer.
+![header and footer (mobile)](static/images/mobileheaderandfooter.png "header and footer (mobile)")
+![header and footer (large screen)](static/images/largeheaderandfooter.png "header and footer (large screen)")
 
 The most prominant buttons change colour when the mouse is hovered over it.
 
 The landing page sets the brand of the restarant, with a hero image of a log fire, pictures of food, and text describing the history of the restaurant. At the bottom there is a call to action to click the 'Make a reservation' button.
 
-- small and large images of the index page.
+Mobile and large screen vesions of the reservation page.
+![Index page (mobile)](static/images/mobileindex.png "Index page (mobile)")
+![Index page (large screen)](static/images/largeheaderandfooter.png "Index page (large screen)")
 
 If logged in, the make a reservation page displays existing reservations as 'cards' using the bootstrap feature. The cards have buttons to edit or delete the reservations. A large button invites the user to 'Make a reservation'. If not logged in the user is advised as such with text linking them to the corresponding log in and register pages.
 
-- small and large images of the reservation page.
+Mobile and large screen vesions of the reservation page.
+![Reservation page (mobile)](static/images/mobilereservation.png "Reservation page (mobile)")
+![Reservation page (large screen)](static/images/largereservation.png "Reservation page (large screen)")
 
 On clicking the 'Make a reservation button' the user is directed to a form with input fields for name, date (with a datepicker), time and number of guests drop down menu, and a submit button. Past dates on the datepicker ae greyed out. If the user tries to submit empty or invalid data they are advised of the error in red text. The page remains displayed so they can easily correct the error. Once the reservation has been successfully made they are returned to the reservation page where they can see their reservaton and a pop up message confirms their success.
 
-- small and large images of the add reservation page. 
-- Image of page with successful reservation and pop up message.
--Image of error
+Image of page with successful reservation and pop up message.
+![Success Message](static/images/mobilesuccessmessage.png "success Message")
 
+Example of an error message. The name field has been left blank.
+![Error Message](static/images/mobileerrormessage.png "Error Message")
+
+Mobile and large screen vesions of the add reservation page.
+![Make reservation page (mobile)](static/images/mobilemakereservation.png "Make reservation page (mobile)")
+![Make reservation page (large screen)](static/images/largemakeareservation.png "Make reservation page (large screen)")
 
 Clicking on the 'edit' button on a reservation card takes the user to a the same page as they used to make a reservation, excepting the form is prepopulated with the details of the existing reservation. The details can be amended here and the submission process is identical with the above.
 
-- small and large images of the edit reservation page
+Mobile and large screen vesions of the edit reservation page.
+![Edit reservation page (mobile)](static/images/mobileeditreservation.png "Edit reservation page (mobile)")
+![Edit reservation page (large screen)](static/images/largeeditreservation.png "Edit reservation page (large screen)")
 
 Clicking on the 'delete' button on a reservation card takes the user to a new page displaying the reservation details. The user has the option to delete the reservation or return to the reservation page. In either case they are returned to the reservation page. If they choose to delete the reservation a pop up messages advises them of the success of the action.
 
-- small and large images of the delete reservation page
+Mobile and large screen vesions of the delete reservation page.
+![delete reservation page (mobile)](static/images/mobiledeletereservation.png "delete reservation page (mobile)")
+![delete reservation page (large screen)](static/images/largedeletereservation.png "delete reservation page (large screen)")
 
 Clicking on the menu tab takes the user to the restaurant menu. Items are grouped under 'Starter', 'Main', 'Dessert' or 'Drink' depending on type. Items are logically displayed in boxes, with the name in bold, a short description and price.
 
-- small and large images of the menu reservation page
+Mobile and large screen vesions of the menu page.
+![Menu page (mobile)](static/images/mobilemenu.png "Menu page (mobile)")
+![Menu page (large screen)](static/images/largemenu.png "Menu page (large screen)")
 
 
-Clicking on either the 'register' or 'log in' buttons takes the user to pages where the user can perform these corresponding actions. The user also has the option to reset password vi email. If the user clicks the 'sign out' button they are taken to a page asking them to confir the decision.
+Clicking on either the 'register' or 'log in' buttons takes the user to pages where the user can perform these corresponding actions. The user also has the option to reset password vi email. If the user clicks the 'sign out' button they are taken to a page asking them to confirm the decision.
 
-- small and large images 
-
+Mobile and large screen vesions of the sign up page.
+![Authentication (mobile)](static/images/mobilesignin.png "Authentication (mobile)")
+![Authentication (large screen)](static/images/largesignin.png "Authentication (large screen)")
 
 ### Surface
 The surface of the page was designed in line with the marketing objectives of the site. The Blue Boar Inn presents itself as a relaxing and cosy restaurant which leans heavily into it's historical links. The below stylings were selected as supportive of this.
