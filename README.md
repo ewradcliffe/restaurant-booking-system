@@ -258,8 +258,13 @@ All tests pass as per below:
 
 ![Automated tests](static/images/automatedtest.png "Automated tests")
 
+
+
 ### Validation
 Accessibility
+All pages give identical scores when run through lighthouse in devtools.
+
+![Lighthouse report](static/images/lighthouse.png "Lighthouse report")
 
 
 ###### HTML
