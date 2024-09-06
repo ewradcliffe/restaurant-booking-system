@@ -20,7 +20,6 @@ body {
     background-color: rgb(173, 155, 52);
 }
 
-
 /* Logo*/
 #logo {
     font-family: "Bokor", system-ui;
@@ -30,7 +29,6 @@ body {
     max-width: 75%;
     padding: 0% 2%;
 }
-
 
 #logo:hover {
     color: rgb(145, 123, 4);
@@ -42,6 +40,7 @@ body {
     font-size: 200%;
     padding: 2%;
 }
+
 
 /* Index.html page. */
 .index-page-text {
@@ -55,6 +54,7 @@ body {
     padding: 5%;
 }
 
+
 /* Sign up status*/
 .sign-up-btn {
     padding: 0;
@@ -67,7 +67,6 @@ body {
 
 
 /* Reservation display page and delete reservation page.*/
-
 .make-a-reservation-btn {
     font-size: 200%;
     color: rgb(145, 123, 4);
@@ -85,6 +84,7 @@ body {
 .reservation-card-btn:hover {
     color: rgb(37, 32, 1);
 }
+
 
 /* Add/edit reservation page*/
 .make-reservation-form {
@@ -117,6 +117,7 @@ body {
     font-size: 200%;
 }
 
+
 /* Signup, sign in and sign out pages */
 .validation-button {
     font-size: 200%;
@@ -125,8 +126,6 @@ body {
 .validation-button:hover {
     color: rgb(255, 246, 190);
 }
-
-
 
 
 /* footer */
@@ -143,6 +142,7 @@ body {
 .links-list>li>a>i {
     color: black;
 }
+
 
 /* Media Queries*/
 /*Tablets and up (768px+)*/
