@@ -3,10 +3,10 @@ from datetime import datetime
 from django.contrib.auth.models import User
 
 
-
 # Create your models here.
-
-# reservation_time and number_of_guests code inspired by https://blog.devgenius.io/django-tutorial-on-how-to-create-a-booking-system-for-a-health-clinic-9b1920fc2b78
+# reservation_time and number_of_guests code inspired by
+# https://blog.devgenius.io/django-tutorial-on-how-to-create
+# -a-booking-system-for-a-health-clinic-9b1920fc2b78
 
 
 RESERVATION_TIME = (
@@ -37,6 +37,7 @@ NUMBER_OF_GUESTS = (
     ('9', '9'),
 )
 
+
 class Reservation(models.Model):
     """
     Class to manage reservations.
@@ -44,9 +45,12 @@ class Reservation(models.Model):
     reservation_name = models.CharField(max_length=60)
     reservation_email = models.EmailField(blank=True, null=True)
     reservation_date = models.DateField()
-    reservation_time = models.CharField(max_length=10, choices=RESERVATION_TIME)
-    number_of_guests = models.CharField(max_length=10, choices=NUMBER_OF_GUESTS)
-    reservation_booked_by = models.ForeignKey(User, null=True, on_delete=models.SET_NULL)
+    reservation_time = models.CharField(
+        max_length=10, choices=RESERVATION_TIME)
+    number_of_guests = models.CharField(
+        max_length=10, choices=NUMBER_OF_GUESTS)
+    reservation_booked_by = models.ForeignKey(
+        User, null=True, on_delete=models.SET_NULL)
     reservation_created_on = models.DateTimeField(auto_now_add=True)
     reservation_updated_on = models.DateTimeField(auto_now=True)
 
@@ -60,4 +64,5 @@ class Reservation(models.Model):
         """
         Displays most useful reservation information.
         """
-        return f"{self.reservation_name} | {self.reservation_date} | {self.reservation_time} | {self.number_of_guests}"
+        return f"{self.reservation_name} | {self.reservation_date} | {
+            self.reservation_time} | {self.number_of_guests}"

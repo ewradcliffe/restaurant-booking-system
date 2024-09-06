@@ -17,9 +17,7 @@ def menu(request):
     }
 
     return render(
-        request, 
+        request,
         "menu/menu.html",
         context
-    )   
-    
-    
+    )

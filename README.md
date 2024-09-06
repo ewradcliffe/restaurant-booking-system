@@ -234,6 +234,7 @@ Both manual and automated tests were used in the testing of the programme.
 NB - at present the time checker is one hour behind current time.
 
 #### Automated tests
+The below automated tests were set up and pass. Please enter python3 manage.py test in the command line to repeat them
 
 |  Programme         | Test | Pass |
 | :---------------- | :------: | ----: |
@@ -262,7 +263,8 @@ Accessibility
 
 
 ###### HTML
-The below pages were put through the [W3C validator](https://validator.w3.org/#validate_by_input) and returned no errors
+The below pages were put through the [W3C validator](https://validator.w3.org/) and returned no errors. As the validator doesn't understand django template syntax, the URL of each page was entered into the validator
+
 |  Page  | Pass | 
 | :----- | :--: | 
 |  | ✓   |
@@ -270,18 +272,37 @@ The below pages were put through the [W3C validator](https://validator.w3.org/#v
 
 ##### CSS
 The below pages were put through the [W3C validator](https://jigsaw.w3.org/css-validator/#validate_by_input)
-|  Page  | Pass | 
-| :----- | :--: | 
-|        | ✓   |
+|  Page  | Pass | Message |
+| :----- | :--: | :--: | 
+| static/css/style.css | ✓   | Imported style sheets are not checked in direct input and file upload modes |
+
+The single CSS style sheet passes without error, and with the message listed above. This simply means the check is limited only to this page.
+
+
 
 ##### PEP8
 The below pages were put through the [W3C validator](https://pep8ci.herokuapp.com/#) and returned no errors
 |  Page  | Pass | 
 | :----- | :--: | 
-|  | ✓   |
-|  | ✓   |
+| menu/admin.py | ✓   |
+| menu/apps.py | ✓   |
+| menu/models.py | ✓   |
+| menu/test_views.py | ✓   |
+| menu/urls.py | ✓   |
+| menu/views.py | ✓   |
+| reservations/admin.py | ✓   |
+| reservations/apps.py | ✓   |
+| reservations/models.py | ✓   |
+| reservations/test_forms.py | ✓   |
+| reservations/test_views.py | ✓   |
+| reservations/urls.py | ✓   |
+| reservations/views.py | ✓   |
+| restuarant/asgi.py | ✓   |
+| restuarant/urls.py | ✓   |
+| restuarant/settings.py | x   |
+| restuarant/wsgi.py | ✓   |
 
-
+Settings.py has five E501 line too long errors. These are the secret key and the 4 allauth password validators. These can't be fixed by adding a '\' without causing an error so I have left them unaltered. 
 
 ## Deployment
 The application was created on Gitpod using The Code Institute template (https://github.com/Code-Institute-Org/ci-full-template) and VS Code Plugin and deployed to Github with the following steps:

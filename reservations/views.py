@@ -27,7 +27,8 @@ class ReservationList(generic.ListView):
 
 def check_time(date_choice, time_choice, timezone):
     "Function to check booked dates and times are in the future."
-    booking_time = datetime.strptime(date_choice+' '+ time_choice, '%Y-%m-%d %H:%M')
+    booking_time = datetime.strptime(date_choice + ' ' + time_choice,
+                                     '%Y-%m-%d %H:%M')
     if booking_time > datetime.now():
         return True
     else:
@@ -59,21 +60,23 @@ def add_reservation(request):
                 reservation.reservation_created_on = datetime.now()
                 reservation.save()
                 messages.add_message(request, messages.SUCCESS,
-                'Your reservation was successfully made!')
+                                     'Your reservation was successfully made!')
                 return HttpResponseRedirect(reverse('reservations-urls'))
 
             else:
-                messages.add_message(request, messages.SUCCESS,
-                'You entered a time in the past. Please enter a later time.')
+                messages.add_message(
+                                    request, messages.SUCCESS,
+                                    'You entered a time in the past.\
+                                    Please enter a later time.')
 
     return render(
-        request, 
+        request,
         "reservations/make_reservation.html", {
             "reservation_form": reservation_form,
         }
     )
 
-    
+
 def delete_reservation(request, id):
     """
     Function to check user wants to delete reservation.
@@ -84,21 +87,21 @@ def delete_reservation(request, id):
     }
 
     return render(
-        request, 
+        request,
         "reservations/delete_reservation.html",
         context
-    )   
-    
-       
+    )
+
+
 def confirm_delete_reservation(request, id):
     """
     Function to delete reservation.
     Adapted from https://www.w3schools.com/django/django_delete_members.php
     """
-    reservation = Reservation.objects.get(id=id)    
+    reservation = Reservation.objects.get(id=id)
     reservation.delete()
     messages.add_message(request, messages.SUCCESS,
-    'Your reservation has been deleted.')
+                         'Your reservation has been deleted.')
     return HttpResponseRedirect(reverse('reservations-urls'))
 
 
@@ -109,7 +112,8 @@ def edit_reservation(request, id):
     reservation = get_object_or_404(Reservation, id=id)
 
     if request.method == "POST":
-        reservation_form = ReservationForm(data=request.POST, instance=reservation)
+        reservation_form = ReservationForm(
+            data=request.POST, instance=reservation)
         if reservation_form.is_valid():
             reservation = reservation_form.save(commit=False)
             """
@@ -119,17 +123,17 @@ def edit_reservation(request, id):
             time = reservation.reservation_time
             datetime_choice_valid = check_time(str(date), time, datetime)
             if datetime_choice_valid:
-                
                 reservation.reservation_booked_by = request.user
                 reservation.reservation_email = request.user.email
                 reservation.save()
                 messages.add_message(request, messages.SUCCESS,
-                'Your reservation has been updated!')
+                                     'Your reservation has been updated!')
                 return HttpResponseRedirect(reverse('reservations-urls'))
 
             else:
                 messages.add_message(request, messages.SUCCESS,
-                'You entered a time in the past. Please enter a later time.')
+                                     'You entered a time in the past.\
+                                     Please enter a later time.')
     else:
         reservation_form = ReservationForm(instance=reservation)
 
@@ -139,7 +143,7 @@ def edit_reservation(request, id):
     }
 
     return render(
-        request, 
+        request,
         "reservations/make_reservation.html",
         context
-    )   
+    )

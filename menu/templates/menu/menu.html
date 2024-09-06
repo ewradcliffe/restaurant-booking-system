@@ -2,7 +2,6 @@
 {% block content %}
 
 <div class="container-fluid gx-5">
-
     <div class="row">
         <div class="col text-center">
             <h1>Menu</h1>
@@ -10,13 +9,11 @@
     </div>
     {% for item in menu_heading %}
     {% with menu_head=item %}
-
     <div class="row">
         <div class="col text-center">
             <h2 class="menu-item-catagory">{{menu_head}}</h2>
         </div>
     </div>
-
     <div class="row">
         {% for entry in menu_list %}
         {% if entry.menu_entry_type == menu_head %}
@@ -29,10 +26,8 @@
         </div>
         {% endif %}
         {% endfor%}
-
     </div>
     {% endwith %}
     {% endfor%}
 </div>
-
 {% endblock %}

@@ -18,9 +18,6 @@ from django.contrib import admin
 from django.urls import path, include
 
 
-#from reservations import views as reservations_views
-
-
 urlpatterns = [
     path('', include('reservations.urls'), name='reservations-urls'),
     path("accounts/", include("allauth.urls")),

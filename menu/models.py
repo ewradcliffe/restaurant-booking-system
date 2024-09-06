@@ -2,7 +2,8 @@ from django.db import models
 from django.contrib.auth.models import User
 
 # Create your models here.
-# MENU_TYPE code inspired by https://blog.devgenius.io/django-tutorial-on-how-to-create-a-booking-system-for-a-health-clinic-9b1920fc2b78
+# MENU_TYPE code inspired by https://blog.devgenius.io/
+# django-tutorial-on-how-to-create-a-booking-system-for-a-health-clinic-9b1920fc2b78
 
 
 MENU_TYPE = (
@@ -12,6 +13,7 @@ MENU_TYPE = (
     ('Drinks', 'Drinks'),
 )
 
+
 class Menu(models.Model):
     """
     Class to manage menu entries.
@@ -20,7 +22,8 @@ class Menu(models.Model):
     menu_entry_name = models.CharField(max_length=50)
     menu_entry_description = models.TextField(max_length=100)
     menu_entry_price = models.DecimalField(max_digits=5, decimal_places=2)
-    menu_entry_by = models.ForeignKey(User, null=True, on_delete=models.SET_NULL)
+    menu_entry_by = models.ForeignKey(
+        User, null=True, on_delete=models.SET_NULL)
 
     class Meta:
         """
@@ -32,4 +35,5 @@ class Menu(models.Model):
         """
         Displays menu entry details.
         """
-        return f"{self.menu_entry_type} | {self.menu_entry_name} | {self.menu_entry_price} |"
+        return f"{self.menu_entry_type} | {self.menu_entry_name} | {
+            self.menu_entry_price} |"
