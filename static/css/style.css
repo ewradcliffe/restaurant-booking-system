@@ -115,6 +115,7 @@ body {
 /* messages pop up */
 .messages-pop-up {
     font-size: 200%;
+    background-color: rgb(247, 221, 79);
 }
 
 

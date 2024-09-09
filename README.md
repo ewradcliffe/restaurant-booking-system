@@ -212,8 +212,9 @@ The below colour pallete was selected to support the site branding. A warm palle
 
 - black - all text.
 - rgb(253, 248, 216) - main background
--  rgb(173, 155, 52) - header and footer
+- rgb(173, 155, 52) - header and footer
 - rgb(250, 230, 120) - reservation cards
+- rgb(247, 221, 79) - Message pop up
 - rgb(145, 123, 4) - where an item changes colour when hovered over and a lighter colour provides a greater contrast
 -  rgb(37, 32, 1) - where an item changes colour when hovered over and a darker colour provides a greater contrast
 - rgb(150, 148, 148) - borders of menu items.
