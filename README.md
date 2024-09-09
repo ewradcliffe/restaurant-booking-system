@@ -3,12 +3,21 @@ The objective of this project was to create a reservation system for the Blue Bo
 ### Strategy
 The overall approach was to build a full stack application using the Django framework linked to a PostgreSQL database. PostgresSQL is a popular and adaptable relational database management system and Django is a flexible framework which easily integrates API's, allowing for a streamlined development cycle. Both are open source and well supported allowing for easy maintainance, future development and customisation. Bootstrap 5 was to be used at the front end to speed up the design process.
 
-The site was disigned using an Agile approach: User stories were collected, added to a [kanban board](https://github.com/users/ewradcliffe/projects/5/views/1) in the project [Githib repository](https://github.com/ewradcliffe/restaurant-booking-system) and prioritised according to the MOSCOW system. These were then used to decide on the scope of the initial iteration of the project.
+The site was disigned using an Agile approach. Epics and user stories were collected, added to a [kanban board](https://github.com/users/ewradcliffe/projects/5/views/1) in the project [Githib repository](https://github.com/ewradcliffe/restaurant-booking-system) and prioritised according to the MOSCOW system. These were then used to decide on the scope of the initial iteration of the project. As the project was being developed additional user stories were collected.
 
 
 ### Scope
 
-##### Must have
+The below epics and user stories were collected. Epics were broken down into user stories, added to the project [kanban board](https://github.com/users/ewradcliffe/projects/5/views/1). Additional user stories were added based on feedback.
+
+#### Epics
+- Creation of a full stack web application to manage restaurant reservations using Django.
+- Staff should have full CRUD control over all reservations via the Admin panel.
+- Customers should have full CRUD control over their reservations via the front end of the site.
+- The site should display a menu.
+- The site front end should upport the overall marketing strategy of the business.
+
+#### Must have
 Must have features are features without which the project will not work.
 - [Staff can make reservations on behalf of customers](https://github.com/users/ewradcliffe/projects/5/views/1?pane=issue&itemId=73488282)
 - [Staff can edit reservations on behalf of customers](https://github.com/users/ewradcliffe/projects/5/views/1?pane=issue&itemId=74915945)
@@ -22,8 +31,8 @@ Must have features are features without which the project will not work.
 - [Automated tests should be created to ensure the reservation database works correctly.](https://github.com/users/ewradcliffe/projects/5/views/1?pane=issue&itemId=78005401)
 - [Automated tests should be created to ensure the menu database works correctly.](https://github.com/users/ewradcliffe/projects/5/views/1?pane=issue&itemId=78005720)
 
-- []()
-##### Should have
+
+#### Should have
 Features not essential to the functioning of the project, but will add significant value to the project.
 - [The site should tell users if they are logged in. The message advising them they are not should link to the log in page.](https://github.com/users/ewradcliffe/projects/5/views/1?pane=issue&itemId=77004143)
 - [The site should be able to display the restaurant menu.](https://github.com/users/ewradcliffe/projects/5/views/1?pane=issue&itemId=73489183)
@@ -31,18 +40,21 @@ Features not essential to the functioning of the project, but will add significa
 - [The front end of the programme should be designed to allow for intuative use.](https://github.com/users/ewradcliffe/projects/5/views/1?pane=issue&itemId=74917009)
 - [Menu should be visble to customers without a login.](https://github.com/users/ewradcliffe/projects/5/views/1?pane=issue&itemId=73489292)
 - [The website should support the marketing objectives of the business.](https://github.com/users/ewradcliffe/projects/5/views/1?pane=issue&itemId=73489644)
+- [Pop up messages should stand out more from the background](https://github.com/ewradcliffe/restaurant-booking-system/issues/21)
 
-##### Could have
-Features which may be useful, but will not add as much value to the site.
-- [Customers can submit special queries via the website.](https://github.com/users/ewradcliffe/projects/5/views/1?pane=issue&itemId=73489518) (This was changed to won't have during this cycle of the development process.)
-- [Website displays additional information to the customer.](https://github.com/ewradcliffe/restaurant-booking-system/issues/8) (This was changed to won't have during this cycle of the development process.)
+#### Could have
+Features which may be useful, but will not add as much value to the site. These were changed to won't have in the current development cycle.
+- [Customers can submit special queries via the website.](https://github.com/users/ewradcliffe/projects/5/views/1?pane=issue&itemId=73489518) 
+- [Website displays additional information to the customer.](https://github.com/ewradcliffe/restaurant-booking-system/issues/8) 
 
 
-##### Won't have
-Features which will not be part of the iteration of development. May be considered in future cycles.
+#### Won't have
+Features which will not be part of the iteration of development. May be considered in future cycles. These have been added to the Kanban board.
 
-- A system for matching reservations with tables.
-- A system for capping reservation numbers at any given point in time. 
+- [Restaurant staff can add pictures to the menu.](https://github.com/ewradcliffe/restaurant-booking-system/issues/22)
+- [A system for matching reservations with tables.](https://github.com/ewradcliffe/restaurant-booking-system/issues/23)
+- [A system for capping reservation numbers at any given point in time.](https://github.com/ewradcliffe/restaurant-booking-system/issues/24)
+
 
 A Django project consists of one or more linked apps. Based on the above prioritisation the core of the project was to be an app to manage the reservations. A second app to display the restaurant menu could be added later.
 
@@ -386,7 +398,7 @@ To update deployments, navigate to ('https://heroku.com') and either login, or f
 
 To create a new app navigate to the dashboard, click on the 'New' button and click 'Create new app' from the dropdown. Give the app a name, select your region and click create app. Please note that app names need to be unique to the platform as a whole. Heroku will not accept spaces as characters. You will need to use hyphens.
 
-To link the database to Heroku navigate to the 'Settings' tab and click 'Reveal Config Vars' You will need to add a key of DATABASE_URL and a value of either the PostgreSQL database linked in settings (if linking to this project), or your own database. You will also need to add SECRET_KEY as a key and the value of the secret key found in env.py
+To link an API to Heroku, navigate to the 'Settings' tab and click 'Reveal Config Vars' You will need to add a key of DATABASE_URL and a value of either the PostgreSQL database linked in settings (if linking to this project), or your own database. You will also need to add SECRET_KEY as a key and the value of the secret key found in env.py
 
 Navigate to the 'Deployment' tab. You will have the option to set up automatic deployment so the app is automatically updated with any changes pushed to github.
 
@@ -402,9 +414,10 @@ Django 4.2.14
 Heroku
 PostgreSQL
 Summernote
-Cloudinary is installed, but not used in the final version
 Crispy Forms
 Bootstrap 5.
+
+Cloudinary is installed, but not used in the final version. If used in future versions please add the secret key from env.py as a config var in Heroku. Please see the deployment section for instructions on how to do this.
 
 ### Credits.
 
