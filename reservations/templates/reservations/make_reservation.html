@@ -1,11 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
 {% load crispy_forms_tags %}
-<!-- Editing a reservation -->
+<!-- Making or editing a reservation -->
 <div class="container-fluid">
     <div class="row justify-content-evenly">
         <div class="col-md-8">
             {% if user.is_authenticated %}
+            <!-- If the user is logged in, the form to make or edit a reservation is displayed here. -->
             <form id="make-reservation-form" method="post" class="make-reservation-form">
                 {{ reservation_form | crispy }}
                 {% csrf_token %}
@@ -16,6 +17,7 @@
                 </div>
             </form>
             {% else %}
+            <!--This message is displayed if the user isn't logged in -->
             <p>Please log in to make a reservation</p>
             {% endif %}
         </div>

@@ -16,8 +16,10 @@
     <!--Reservations displayed here-->
     <div class="row gy-5">
         {% if user.is_authenticated %}
+        <!-- checks user is logged in-->
         {% for reservation in reservation_list %}
         {% if user == reservation.reservation_booked_by %}
+        <!-- Displays all reservations the user has made. -->
         <div class="col-md-4 gx-5">
             <div class="card row">
                 <div class="card-body reservation-card">
@@ -42,6 +44,7 @@
     <div class="row">
         <div class="col-md-4 gx-5">
             {% else %}
+            <!--This message is displayed if the user isn't logged in -->
             <p>You are not <a rel="stylesheet" href="{% url 'account_login' %}" class="btn sign-up-btn">logged
                     in.</a> Please <a rel="stylesheet" href="{% url 'account_login' %}"
                         class="btn sign-up-btn">log in

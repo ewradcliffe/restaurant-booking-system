@@ -14,7 +14,6 @@ body {
     font-style: normal;
 }
 
-
 /* header */
 .header {
     background-color: rgb(173, 155, 52);
@@ -33,7 +32,6 @@ body {
 #logo:hover {
     color: rgb(145, 123, 4);
 }
-
 
 /* Navbar*/
 .nav-item {
@@ -57,7 +55,6 @@ body {
     padding: 5%;
 }
 
-
 /* Sign up button*/
 .sign-up-btn {
     padding: 0;
@@ -67,7 +64,6 @@ body {
 .sign-up-btn:hover {
     color: rgb(145, 123, 4)
 }
-
 
 /* Reservation display page and delete reservation page.*/
 .make-a-reservation-btn {
@@ -88,7 +84,6 @@ body {
     color: rgb(37, 32, 1);
 }
 
-
 /* Add/edit reservation page*/
 .make-reservation-form {
     font-size: 120%;
@@ -102,7 +97,6 @@ body {
     color: rgb(37, 32, 1);
 }
 
-
 /* Menu Page */
 .menu-item-catagory {
     border-bottom: 1px solid rgb(150, 148, 148);
@@ -114,13 +108,11 @@ body {
     border-radius: 10px;
 }
 
-
 /* messages pop up */
 .messages-pop-up {
     font-size: 200%;
     background-color: rgb(247, 221, 79);
 }
-
 
 /* Signup, sign in and sign out pages */
 .validation-button {
@@ -130,7 +122,6 @@ body {
 .validation-button:hover {
     color: rgb(255, 246, 190);
 }
-
 
 /* footer */
 .footer {
@@ -146,7 +137,6 @@ body {
 .links-list>li>a>i {
     color: black;
 }
-
 
 /* Media Queries*/
 /*Tablets and up (768px+)*/

@@ -62,7 +62,9 @@
                             <a class="nav-link" href="{% url 'menu' %}">Menu</a>
                         </li>
                         <!--Signup/login/logout.
-                        Code from https://learn.codeinstitute.net/ django blog tutorial -->
+                        Code from https://learn.codeinstitute.net/ django blog tutorial 
+                        If user is signed in display logout button,
+                        else display register and sign in buttons-->
                         {% if user.is_authenticated %}
                         <li class="nav-item">
                             <a class="nav-link {% if request.path == logout_url %}active{% endif %}" aria-current="page"
@@ -82,6 +84,8 @@
                 </div>
             </div>
             <div class="sign-in-message">
+                <!--Sign in status confirmation.
+                Tells user if they are logged in or not. -->
                 {% if user.is_authenticated %}
                 <p class="m-2">You are logged in as {{ user }}.</p>
                 {% else %}
