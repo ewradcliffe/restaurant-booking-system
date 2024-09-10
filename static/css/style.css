@@ -3,7 +3,7 @@
 
 /* General styles */
 .main-body {
-    margin-top: 125px;
+    margin-top: 150px;
     margin-bottom: 200px;
 }
 
@@ -37,10 +37,13 @@ body {
 
 /* Navbar*/
 .nav-item {
-    font-size: 200%;
+    font-size: 180%;
     padding: 2%;
 }
 
+.sign-in-status {
+    max-width: 20%;
+}
 
 /* Index.html page. */
 .index-page-text {
@@ -55,10 +58,10 @@ body {
 }
 
 
-/* Sign up status*/
+/* Sign up button*/
 .sign-up-btn {
     padding: 0;
-    margin-top: -1px;
+    margin-top: -2px;
 }
 
 .sign-up-btn:hover {
@@ -158,5 +161,12 @@ body {
     /* Logo*/
     #logo {
         font-size: 400%;
+    }
+}
+
+/* Large devices (1224px and up) */
+@media screen and (min-width: 1224px) {
+    .sign-in-message {
+        max-width: 15%;
     }
 }

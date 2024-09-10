@@ -156,7 +156,6 @@ The site was designed to have intuitve navigation and use, and follow the princi
 
 The standard log in/log out, sign up etc. pages from allauth. They will be styled consistantly with the rest of the site.
 
-
 A consistant header and footer appears on all pages. The header consists of a navigation bar with the restaurant logo in the top left hand corner and if clicked returns the user to the home page. A three bar 'burger' button opens a drop down menu when clicked, allowing the user quick navigation to the home page, the reservation page, the menu page, the register and log in page (if not logged in) or the sign out page (if logged in). On  screens of 980px and above the burger button is replaced with individual tabs for the above pages. The navigaton bar also gives the user login status. This can also be used to navigate to the log in or register pages if they are not logged in. The footer displays links to social media sites and on screens of 768px and above the footer expands to give the opening hours and address of the restaurant.
 
 Mobile and large screen vesions of the header and footer.

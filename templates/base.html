@@ -6,8 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Meta tags for search engines -->
-    <meta name="description"
-        content="Blue Boar, The Blue Boar, The Blue Boar Inn, Pub, Restaurant, Gastropub">
+    <meta name="description" content="Blue Boar, The Blue Boar, The Blue Boar Inn, Pub, Restaurant, Gastropub">
     <meta name="keywords" content="Blue Boar, The Blue Boar, The Blue Boar Inn">
     <!-- Title -->
     <title>The Blue Boar Inn</title>
@@ -43,7 +42,7 @@
     <header class="header fixed-top">
         <!-- navbar -->
         <!-- navbar adapteed from https://www.w3schools.com/bootstrap/bootstrap_navbar.asp-->
-        <nav class="navbar navbar-expand-lg">
+        <nav class="navbar navbar-expand-xxl">
             <div class="container-fluid">
                 <a class="navbar-brand" href="{% url 'index-urls' %}" id="logo">The Blue Boar Inn</a>
                 <button class="navbar-toggler m-1" type="button" data-bs-toggle="collapse"
@@ -82,12 +81,12 @@
                     </ul>
                 </div>
             </div>
-            <div class="justify-content-end">
+            <div class="sign-in-message">
                 {% if user.is_authenticated %}
                 <p class="m-2">You are logged in as {{ user }}.</p>
                 {% else %}
                 <p class="m-2">You are not <a rel="stylesheet" href="{% url 'account_login' %}"
-                        class="btn sign-up-btn">logged in.</a><span class="d-none d-xl-block">Please <a rel="stylesheet"
+                        class="btn sign-up-btn">logged in.</a><span class="d-none d-xxl-block">Please <a rel="stylesheet"
                             href="{% url 'account_login' %}" class="btn sign-up-btn">log in
                         </a>or
                         <a rel="stylesheet" href="{% url 'account_signup' %}" class="btn sign-up-btn">sign
@@ -101,25 +100,25 @@
         <!-- Display messages 
              Adapted from the code institute 'I think therefore I blog' tutorial.
              https://learn.codeinstitute.net/-->
-             <div class="container">
-                <div class="row">
-                    <div class="col messages-pop-up">
-                        {% for message in messages %}
-                        <div class="alert {{ message.tags }} alert-dismissible ">
-                            <div class="row d-flex justify-content-center">
-                                <div class="col-8 text-start">
-                                    {{ message | safe }}
-                                </div>
-                                <div class="col-2">
-                                    <button type="button" class="btn-close" data-bs-dismiss="alert"
-                                        aria-label="Close"></button>
-                                </div>
+        <div class="container">
+            <div class="row">
+                <div class="col messages-pop-up">
+                    {% for message in messages %}
+                    <div class="alert {{ message.tags }} alert-dismissible ">
+                        <div class="row d-flex justify-content-center">
+                            <div class="col-8 text-start">
+                                {{ message | safe }}
+                            </div>
+                            <div class="col-2">
+                                <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                    aria-label="Close"></button>
                             </div>
                         </div>
-                        {% endfor %}
                     </div>
+                    {% endfor %}
                 </div>
             </div>
+        </div>
         <!-- block content here -->
         {% block content %}
         {% endblock content %}
