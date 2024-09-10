@@ -142,7 +142,20 @@ The menu.html template displays the catagories for menu items to the screen. It 
 ### Skeleton
 The site was designed to have intuitve navigation and use, and follow the principles of mobile first design. The below wireframes were drafted as a guideline for the development of the site.
 
-- Wireframes
+- Landing page, Reservations and Menu page (Mobile view).
+![Mobile screen wireframes](static/images/wireframethree.jpeg "Mobile screen wireframes")
+
+- Delete reservations (mobile and large screen).
+![Delete reservations mobile and large screen](static/images/wireframefour.jpeg "Delete reservations mobile and large screen")
+
+- Large screen landing and reservation page (large screen).
+![large screen landing and reservation page](static/images/wireframetwo.jpeg "large screen landing and reservation page")
+
+- Large screen menu and make/edit reservations (large screen).
+![large screen menu and make reservations](static/images/wireframeone.jpeg "large screen menu and make reservations")
+
+The standard log in/log out, sign up etc. pages from allauth. They will be styled consistantly with the rest of the site.
+
 
 A consistant header and footer appears on all pages. The header consists of a navigation bar with the restaurant logo in the top left hand corner and if clicked returns the user to the home page. A three bar 'burger' button opens a drop down menu when clicked, allowing the user quick navigation to the home page, the reservation page, the menu page, the register and log in page (if not logged in) or the sign out page (if logged in). On  screens of 980px and above the burger button is replaced with individual tabs for the above pages. The navigaton bar also gives the user login status. This can also be used to navigate to the log in or register pages if they are not logged in. The footer displays links to social media sites and on screens of 768px and above the footer expands to give the opening hours and address of the restaurant.
 
@@ -299,7 +312,7 @@ All pages give identical scores when run through lighthouse in devtools.
 
 
 ###### HTML
-The below pages were put through the [W3C validator](https://validator.w3.org/) and returned no errors. As the validator doesn't understand django template syntax, the URL of each page was entered into the validator
+The below pages were put through the [W3C validator](https://validator.w3.org/). As the validator doesn't understand django template syntax, the URL of each page was entered into the validator
 
 |  Page  | Pass | 
 | :----- | :--: | 
@@ -315,7 +328,7 @@ The below pages were put through the [W3C validator](https://validator.w3.org/) 
 | password_reset.html | ✓   |
 | signup.html | x |
 
-Signup HTML returns four errors. Unfortunately, these are all in the rendering of the form in the lines below and are inaccessable for editing.
+Signup HTML returns four errors. Unfortunately, these are all in the rendering of the form in the html of the allauth. These are seen in the lines below. They are not from code written for this project and are inaccessable for editing.
 
 ![Signup error](static/images/signuperrorone.png "signup error")
 ![Signup error](static/images/signuperror.png "signup error")
@@ -414,6 +427,7 @@ Python 3.12.2
 Django 4.2.14
 Heroku
 PostgreSQL
+Allauth
 Summernote
 Crispy Forms
 Bootstrap 5.
