@@ -304,13 +304,31 @@ All tests pass as per below:
 
 
 ### Validation
-Accessibility
-All pages give identical scores when run through lighthouse in devtools.
 
+#### Accessibility
+The I have checked the index (i.e. landing), reservations, add/edit reservations and menu pages with lighthouse and [Wave](https://wave.webaim.org/aim/) with the below results.
+
+##### Index page
 ![Lighthouse report](static/images/lighthouse.png "Lighthouse report")
+![Wave report](static/images/waveindex.png "Wave report")
+
+##### Reservations page
+![Lighthouse report](static/images/lighthousereservations.png "Lighthouse report")
+
+![Wave report](static/images/wavereservations.png "Wave report")
+
+##### Add/edit reservations page
+![Lighthouse report](static/images/lighthouseaddreservations.png "Lighthouse report")
+
+![Wave report](static/images/wavereservations.png "Wave report")
+
+##### Menu page
+![Lighthouse report](static/images/lighthousemenu.png "Lighthouse report")
+
+![Wave report](static/images/wavemenu.png "Wave report")
 
 
-###### HTML
+##### HTML
 The below pages were put through the [W3C validator](https://validator.w3.org/). As the validator doesn't understand django template syntax, the URL of each page was entered into the validator
 
 |  Page  | Pass | 

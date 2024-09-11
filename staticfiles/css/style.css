@@ -3,7 +3,7 @@
 
 /* General styles */
 .main-body {
-    margin-top: 125px;
+    margin-top: 150px;
     margin-bottom: 200px;
 }
 
@@ -13,7 +13,6 @@ body {
     font-weight: 400;
     font-style: normal;
 }
-
 
 /* header */
 .header {
@@ -34,13 +33,15 @@ body {
     color: rgb(145, 123, 4);
 }
 
-
 /* Navbar*/
 .nav-item {
-    font-size: 200%;
+    font-size: 180%;
     padding: 2%;
 }
 
+.sign-in-status {
+    max-width: 20%;
+}
 
 /* Index.html page. */
 .index-page-text {
@@ -54,17 +55,15 @@ body {
     padding: 5%;
 }
 
-
-/* Sign up status*/
+/* Sign up button*/
 .sign-up-btn {
     padding: 0;
-    margin-top: -1px;
+    margin-top: -2px;
 }
 
 .sign-up-btn:hover {
     color: rgb(145, 123, 4)
 }
-
 
 /* Reservation display page and delete reservation page.*/
 .make-a-reservation-btn {
@@ -85,7 +84,6 @@ body {
     color: rgb(37, 32, 1);
 }
 
-
 /* Add/edit reservation page*/
 .make-reservation-form {
     font-size: 120%;
@@ -99,7 +97,6 @@ body {
     color: rgb(37, 32, 1);
 }
 
-
 /* Menu Page */
 .menu-item-catagory {
     border-bottom: 1px solid rgb(150, 148, 148);
@@ -111,13 +108,11 @@ body {
     border-radius: 10px;
 }
 
-
 /* messages pop up */
 .messages-pop-up {
     font-size: 200%;
     background-color: rgb(247, 221, 79);
 }
-
 
 /* Signup, sign in and sign out pages */
 .validation-button {
@@ -127,7 +122,6 @@ body {
 .validation-button:hover {
     color: rgb(255, 246, 190);
 }
-
 
 /* footer */
 .footer {
@@ -144,7 +138,6 @@ body {
     color: black;
 }
 
-
 /* Media Queries*/
 /*Tablets and up (768px+)*/
 
@@ -158,5 +151,12 @@ body {
     /* Logo*/
     #logo {
         font-size: 400%;
+    }
+}
+
+/* Large devices (1224px and up) */
+@media screen and (min-width: 1224px) {
+    .sign-in-message {
+        max-width: 15%;
     }
 }
