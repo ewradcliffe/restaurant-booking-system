@@ -2,7 +2,7 @@
 The objective of this project was to create a reservation system for the Blue Boar Inn, a fictional restaurant. At its core, the project needed a user to be able to make a reservation at the restaurant as well as being able to amend or cancel the reservation. In programming terms this means creating a database for reservations and allowing users full CRUD (Create, Read, Update, Delete) control over that data.
 
 ### Strategy
-The overall approach was to build a full stack application using the Django framework linked to a PostgreSQL database. PostgresSQL is a popular and adaptable relational database management system and Django is a flexible framework which easily integrates API's, allowing for a streamlined development cycle. Both are open source and well supported allowing for easy maintenance, future development and customisation. Bootstrap 5 was to be used at the front end to speed up the design process.
+The overall approach was to build a full stack application using the Django framework linked to a PostgreSQL database. PostgreSQL is a popular and adaptable relational database management system and Django is a flexible framework which easily integrates API's, allowing for a streamlined development cycle. Both are open source and well supported allowing for easy maintenance, future development and customisation. Bootstrap 5 was to be used at the front end to speed up the design process.
 
 The site was designed using an Agile approach. Epics and user stories were collected, added to a [kanban board](https://github.com/users/ewradcliffe/projects/5/views/1) in the project [Githib repository](https://github.com/ewradcliffe/restaurant-booking-system) and prioritised according to the MOSCOW system. MOSCOW organises stories and features into 'Must have', 'Should have', 'Could have', 'Won't have' categories. This allows Agile developers to prioritise which parts of the programme to create first. After a fixed period of time the development cycle ends and the project is reviewed. features may be recategorised and additional user stories added throughout based on testing and feedback received.
 
@@ -42,28 +42,31 @@ Features not essential to the functioning of the project, but will add significa
 - [Pop up messages should stand out more from the background](https://github.com/ewradcliffe/restaurant-booking-system/issues/21)
 
 #### Could have
-Features which may be useful, but will not add as much value to the site. These were changed to won't have in the current development cycle.
+Features which may be useful, but will not add as much value to the site. Due to time constraints these have not been added to the project so have been marked as won't have on the kanban board.
+
 - [Customers can submit special queries via the website.](https://github.com/users/ewradcliffe/projects/5/views/1?pane=issue&itemId=73489518)
 - [Website displays additional information to the customer.](https://github.com/ewradcliffe/restaurant-booking-system/issues/8)
 
 #### Won't have
-Features which will not be part of the iteration of development. May be considered in future cycles. These have been added to the Kanban board.
+Features which will not be part of the iteration of development. These have been added to the kanban board for consideration in future development cycles.
+
 - [Restaurant staff can add pictures to the menu.](https://github.com/ewradcliffe/restaurant-booking-system/issues/22)
 - [A system for matching reservations with tables.](https://github.com/ewradcliffe/restaurant-booking-system/issues/23)
 - [A system for capping reservation numbers at any given point in time.](https://github.com/ewradcliffe/restaurant-booking-system/issues/24)
+- [Filter reservations in reservation view.](https://github.com/ewradcliffe/restaurant-booking-system/issues/25)
 
 In accordance with Agile development principles, development would begin with the 'must have' features. Together these would form a 'minimal viable product' (MVP). 'Should have' features would be added, prioritising (in order) making a reservation, user experience, restaurant marketing and displaying a menu. In that way a product could be developed as soon as possible and continually developed and improved while maintaining utility.
 
 ### Structure
-Once the scope of the project for the initial cycle of Agile development had been decided it was clear how the project could be structured. An overall project (titled 'restaurant') was created and to it linked an app (titled 'reservations'). Data could be stored in a PostgreSQL database. If time was permitted in the development cycle a second app (titled 'menu') could be added. Models, Views and Templates for both apps were planned in accordance with Django's Model View Template (MVT) paradigm.
+Once the scope of the project for the initial cycle of Agile development had been decided it was clear how the project could be structured. An overall project (titled 'restaurant') was created and to it linked an app (titled 'reservations'). Data would be stored in a PostgreSQL database. If time was permitted in the development cycle a second app (titled 'menu') could be added. Models, Views and Templates for both apps were planned in accordance with Django's Model View Template (MVT) paradigm.
 
 ##### Authentication
 The Django allauth package was installed to manage the user authentication process. A superuser created with access to the admin page. The documentation can be found [here](https://docs.allauth.org/en/latest/).
 
-Summernote, meta and string methods were used to add meta data to database entries to add functionality and improve user experience in the admin page.
+Summernote, meta and string methods were used to add meta data to database entries, to add functionality and improve user experience in the admin page.
 
 ###### base.HTML
-Not linked to a view, the base.html template consists of the header and footer with the content of other templates rendered in the main section depending on user selection.
+Not linked to a view, the base.html template consists of the header and footer with the content of other templates rendered in the main section depending on user selection. It also contains the HTML do display pop up messages to users.
 
 #### Reservations app
 ##### Model
@@ -71,7 +74,7 @@ Django has a built in User Model so it was only necessary to plan a model for th
 
 ![Reservation model ERD](static/images/reservationerd.png "Reservation model ERD")
 
-The model allows for a number of fields essential or useful for managing a reservation. Note that Django ads an ID field to each model by default, adding a unique identification to each database entry.
+The model allows for a number of fields essential or useful for managing a reservation. Note that Django adds an ID field to each model by default, adding a unique identification to each database entry.
 
 **reservation_name** allows the creator of the entry a reference separate from their username. It allows staff to add reservations on behalf of others and for customers to give guests a reference separate to the username they created the account with.
 
@@ -92,36 +95,35 @@ The below views were created to filter data.
 As the only role of the index was to render the front page content no complex programming was required.
 
 ##### ReservationList
-This renders a list of reservations already created. Note that reservations not made by the user are filtered out by the template not the view. This has no impact on the performance of a small app, but could impact performance of a larger app. It is a point for consideration for future phases of  development.
+This renders a list of reservations already created. Note that reservations not made by the user are filtered out by the template not the view. This has no impact on the performance of a small app, but could impact performance of a larger app. It is a point of consideration for future phases of  development and has been added as a user story to the kanban board.
 
-##### check_time.
+##### check_time
 This function compares the time and date of a reservation against the datetime module to check if a reservation is in the past. Note that the project has been left with the default time zone settings of UTC unchanged and the function derives its time from the server running the application using the datetime.now() method.
 
 ##### add_reservation
 This view renders the reservation form derived from the model to the screen. If the data entered is valid (as per the parameters of the model) it checks if the entry is not in the past using the check_time function. If this is valid it saves the data in the database and provides a validation message to the user. If not it advises the user of the error.
 
 ##### delete_reservation
-This view is triggered when a user clicks on the 'delete' button of a reservation. It uses the ID of the entry the user selects to GET the corresponding data from the database and display it to the user. The user is asked to confirm they want to delete the reservation. If not they are returned to the reservations page, if they select yes the confirm_delete_reservation page view is triggered.
+This view is triggered when a user clicks on the 'delete' button of a reservation. It uses the ID of the entry the user selects to get the corresponding data from the database and display it to the user. The user is asked to confirm they want to delete the reservation. If not they are returned to the reservations page, if they select yes the confirm_delete_reservation page view is triggered.
        
 ##### confirm_delete_reservation
 If the user confirms they want to delete the reservation this function is triggered. It deletes the entry from the database, returns the user to the reservation page and displays a message confirming the reservation has been deleted.
 
 ##### edit_reservation
-This view is triggered if the user selects the edit reservation button on an existing reservation. It uses the ID of the entry the user selects to GET the corresponding data from the database, and renders it to the make_reservation template as context.This allows users to update database entries in a way familiar from when they made the entry. It performs the same validation checks as the add_reservation view. Users are presented with appropriate feedback if they enter invalid data, and a success message once the update has been a success.
+This view is triggered if the user selects the edit reservation button on an existing reservation. It uses the ID of the entry the user selects to get the corresponding data from the database, and renders it to the make_reservation template as context. This allows users to update database entries in a way familiar from when they made the entry. It performs the same validation checks as the add_reservation view. Users are presented with an error message if they enter invalid data, and a success message once the update has been a success.
 
 ##### Templates
 ###### index.html
-Displays as the front page to a user who lands on the page for the first time. The user sees some photographs and text which convey the ambience of the restaurant. There is a button linking to the page where they can make a reservation as a call to action.
+Displays as the front page to a user. The user sees photographs and text which support the marketing objectives of the business. There is a button linking to the page where they can make a reservation as a call to action.
 
 ###### reservation.html
-If a user is logged in they are presented with a message advising them as such and linked to the page where they can sign in. Once they are logged in they can see a list of reservations they have made displayed as cards. They can edit or delete these reservations by clicking the appropriately titled buttons. They can also make new reservations by clicking the 'make reservations' button.
+If a user is not logged in they are presented with a message advising them as such and linked to the page where they can sign in. Once they are logged in they can see a list of reservations they have made displayed as cards. They can edit or delete these reservations by clicking the appropriately titled buttons. They can also make new reservations by clicking the 'make reservations' button.
 
 ##### delete_reservation.html
 This template renders the detail of a reservation to the page if the user selects the 'delete' button on a reservation. It asks the user if they are sure they want to delete the reservation.
 
 ###### make_reservation.html
 This is used by both the add_reservation and edit_reservation views to render the reservation form using crispy forms.
-
 
 #### Menu app
 As displaying a menu was a 'should have' rather than 'must have' feature this was planned and added after development of the Reservations app. Note that only users with access to the Admin page have full CRUD control over the database. Other users can only read the data as it is displayed on the front end of the site.
@@ -160,10 +162,9 @@ The site was designed to have intuitive navigation and use, and follow the princ
 - Large screen menu and make/edit reservations (large screen).
 ![large screen menu and make reservations](static/images/wireframeone.jpeg "large screen menu and make reservations")
 
-The standard log in/log out, sign up etc. pages from allauth. They will be styled consistently with the rest of the site.
+The standard login/logout, sign up etc. pages from allauth. They will be styled consistently with the rest of the site.
 
-A consistent header and footer appears on all pages. The header consists of a navigation bar with the restaurant logo in the top left hand corner and if clicked returns the user to the home page. A three bar 'burger' button opens a drop down menu when clicked, allowing the user quick navigation to the home page, the reservation page, the menu page, the register and log in page (if not logged in) or the sign out page (if logged in). On  screens of 980px and above the burger button is replaced with individual tabs for the above pages. The navigation bar also gives the user login status. This can also be used to navigate to the log in or register pages if they are not logged in. The footer displays links to social media sites and on screens of 768px and above the footer expands to give the opening hours and address of the restaurant.
-
+A consistent header and footer appears on all pages. The header consists of a navigation bar with the restaurant logo in the top left hand corner and if clicked returns the user to the home page. A three bar 'burger' button opens a drop down menu when clicked, allowing the user quick navigation to the home page, the reservation page, the menu page, the register and log in page (if not logged in) or the sign out page (if logged in). On very large screens the burger button is replaced with individual tabs for the above pages. The navigation bar also gives the user login status. On larger screens a call to action is added inviting the user to log in or sign up. This will also link them to the appropriate page. The footer displays links to social media sites and on screens of 768px and above the footer expands to give the opening hours and address of the restaurant.
 
 **Mobile and large screen versions of the header and footer.**
 
@@ -172,7 +173,7 @@ A consistent header and footer appears on all pages. The header consists of a na
 
 The most prominent buttons change colour when the mouse is hovered over it.
 
-The landing page sets the brand of the restaurant, with a hero image of a log fire, pictures of food, and text describing the history of the restaurant. At the bottom there is a call to action to click the 'Make a reservation' button.
+The landing page supports the marketing objectives of the business, with a hero image of a log fire, pictures of food, and text describing the history of the restaurant. At the bottom there is a call to action to click the 'Make a reservation' button.
 
 **Mobile and large screen versions of the reservation page.**
 
@@ -202,7 +203,7 @@ On clicking the 'Make a reservation button' the user is directed to a form with 
 
 ![Make reservation page (large screen)](static/images/largemakeareservation.png "Make reservation page (large screen)")
 
-Clicking on the 'edit' button on a reservation card takes the user to a the same page as they used to make a reservation, excepting the form is prepopulated with the details of the existing reservation. The details can be amended here and the submission process is identical with the above.
+Clicking on the 'edit' button on a reservation card takes the user to the same page as they used to make a reservation, excepting the form is prepopulated with the details of the existing reservation. The details can be amended here and the submission process is identical with the above.
 
 **Mobile and large screen versions of the edit reservation page.**
 
@@ -256,8 +257,6 @@ Images were selected from [Pexels](https://www.pexels.com/). Some images were re
 
 ###### Interactivity.
 The main buttons have been increased in size. They change colour when hovered over to make it clear to users they can be clicked.
-
-designers finalise the product's features such as colour, typography, and visual elements that the user will interact with
 
 ### Testing
 Both manual and automated tests were used in the testing of the programme.
@@ -397,7 +396,7 @@ The below pages were put through the [W3C validator](https://pep8ci.herokuapp.co
 | restuarant/wsgi.py | ✓   |
 
 
-Settings.py has five E501 line too long errors. These are the secret key and the 4 allauth password validators. These can't be fixed by adding a '\' without causing an error so I have left them unaltered. This does not otherwise affect the functioning of the site.
+Settings.py has five E501 line too long errors. These are the 4 allauth password validators. These can't be fixed by adding a '\' without causing an error so they have been left unaltered. This does not otherwise affect the functioning of the site.
 
 ## Deployment
 The application was created on Gitpod using The Code Institute template (https://github.com/Code-Institute-Org/ci-full-template) and VS Code and deployed to Github with the following steps:
